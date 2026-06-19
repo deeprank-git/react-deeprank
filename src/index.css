@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+.marquee-wrapper {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  animation: marquee 24s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track > div {
+  flex-shrink: 0;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
