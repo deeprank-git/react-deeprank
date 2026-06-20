@@ -4,16 +4,16 @@ import { HiBolt, HiCheckCircle, HiLink, HiArrowTrendingUp } from "react-icons/hi
 
 /* ─── Products data ─────────────────────────────────────────── */
 const products = [
-  { name: "Swolio",  desc: "Social Media Automation Platform",  icon: "S", iconBg: "bg-purple-100", iconColor: "text-purple-600" },
-  { name: "Tasku",   desc: "Project & Task Management Platform", icon: "T", iconBg: "bg-blue-100",   iconColor: "text-blue-600"   },
-  { name: "CRMforU", desc: "Customer Relationship Management",   icon: "C", iconBg: "bg-green-100",  iconColor: "text-green-600"  },
+  { name: "Swolio", desc: "Social Media Automation Platform", icon: "S", iconBg: "bg-purple-100", iconColor: "text-purple-600" },
+  { name: "Tasku", desc: "Project & Task Management Platform", icon: "T", iconBg: "bg-blue-100", iconColor: "text-blue-600" },
+  { name: "CRMforU", desc: "Customer Relationship Management", icon: "C", iconBg: "bg-green-100", iconColor: "text-green-600" },
 ];
 
 const whyChoose = [
-  { icon: <HiBolt           className="w-4 h-4 text-blue-600" />, title: "Built for Performance", desc: "Lightning-fast, secure & reliable platforms." },
-  { icon: <HiCheckCircle    className="w-4 h-4 text-blue-600" />, title: "Easy to Use",            desc: "Intuitive interfaces that your team will love." },
-  { icon: <HiLink           className="w-4 h-4 text-blue-600" />, title: "Seamless Integration",   desc: "Connect with your favorite tools and platforms." },
-  { icon: <HiArrowTrendingUp className="w-4 h-4 text-blue-600" />, title: "Scalable Solutions",    desc: "Grow your business with products that scale." },
+  { icon: <HiBolt className="w-4 h-4 text-blue-600" />, title: "Built for Performance", desc: "Lightning-fast, secure & reliable platforms." },
+  { icon: <HiCheckCircle className="w-4 h-4 text-blue-600" />, title: "Easy to Use", desc: "Intuitive interfaces that your team will love." },
+  { icon: <HiLink className="w-4 h-4 text-blue-600" />, title: "Seamless Integration", desc: "Connect with your favorite tools and platforms." },
+  { icon: <HiArrowTrendingUp className="w-4 h-4 text-blue-600" />, title: "Scalable Solutions", desc: "Grow your business with products that scale." },
 ];
 
 /* ─── Services data ─────────────────────────────────────────── */
@@ -109,10 +109,10 @@ const serviceCards = [
 ];
 
 const serviceCategories = [
-  { label: "AI & Automation",  color: "text-blue-600",   items: ["AI Agents", "AI Chatbots", "Workflow Automation", "Voice AI", "Business Intelligence"] },
-  { label: "Growth Marketing", color: "text-green-600",  items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "DV360", "Social Media Marketing", "CRO"] },
-  { label: "Development",      color: "text-purple-600", items: ["SaaS Development", "CRM Development", "API Development", "Custom Platforms"] },
-  { label: "Emerging Tech",    color: "text-orange-600", items: ["Blockchain", "NFT Development", "Web3 Development", "Smart Contracts"] },
+  { label: "AI & Automation", color: "text-blue-600", items: ["AI Agents", "AI Chatbots", "Workflow Automation", "Voice AI", "Business Intelligence"] },
+  { label: "Growth Marketing", color: "text-green-600", items: ["Google Ads", "Meta Ads", "LinkedIn Ads", "DV360", "Social Media Marketing", "CRO"] },
+  { label: "Development", color: "text-purple-600", items: ["SaaS Development", "CRM Development", "API Development", "Custom Platforms"] },
+  { label: "Emerging Tech", color: "text-orange-600", items: ["Blockchain", "NFT Development", "Web3 Development", "Smart Contracts"] },
 ];
 
 /* ─── Shared UI ──────────────────────────────────────────────── */
@@ -124,7 +124,7 @@ const Chevron = ({ open }) => (
 
 /* ─── Products mega menu ─────────────────────────────────────── */
 const ProductMegaMenu = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[860px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden mega-menu-animate">
+  <div className="w-215 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden max-h-[82vh] overflow-y-auto mega-menu-animate">
     <div className="grid grid-cols-[200px_1fr_220px]">
 
       {/* Left — product list */}
@@ -163,7 +163,7 @@ const ProductMegaMenu = () => (
             <span className="text-[9px] opacity-50">Overview</span>
           </div>
           <div className="p-2.5 grid grid-cols-4 gap-1.5">
-            {[{ l:"Revenue",v:"₹24.8M",c:"+34.5%" },{ l:"Users",v:"12,540",c:"+18.8%" },{ l:"Tasks",v:"8,742",c:"+32%" },{ l:"Conv.",v:"34.6%",c:"+12.7%" }].map((s) => (
+            {[{ l: "Revenue", v: "₹24.8M", c: "+34.5%" }, { l: "Users", v: "12,540", c: "+18.8%" }, { l: "Tasks", v: "8,742", c: "+32%" }, { l: "Conv.", v: "34.6%", c: "+12.7%" }].map((s) => (
               <div key={s.l} className="bg-white rounded-lg p-1.5 shadow-sm">
                 <p className="text-[8px] text-gray-400">{s.l}</p>
                 <p className="text-[10px] font-bold text-gray-800">{s.v}</p>
@@ -173,8 +173,8 @@ const ProductMegaMenu = () => (
           </div>
           <div className="px-2.5 pb-2.5">
             <div className="bg-white rounded-lg p-1.5 h-12 flex items-end gap-0.5">
-              {[40,55,35,70,60,80,65,90,75,85].map((h,i) => (
-                <div key={i} className="flex-1 rounded-sm bg-blue-500 opacity-70" style={{ height:`${h}%` }} />
+              {[40, 55, 35, 70, 60, 80, 65, 90, 75, 85].map((h, i) => (
+                <div key={i} className="flex-1 rounded-sm bg-blue-500 opacity-70" style={{ height: `${h}%` }} />
               ))}
             </div>
           </div>
@@ -210,7 +210,7 @@ const ProductMegaMenu = () => (
 
 /* ─── Services mega menu ─────────────────────────────────────── */
 const ServiceMegaMenu = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[980px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 z-50 overflow-hidden max-h-[82vh] overflow-y-auto mega-menu-animate">
+  <div className="w-245 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 max-h-[82vh] overflow-y-auto mega-menu-animate">
     {/* Service cards + featured */}
     <div className="grid grid-cols-[1fr_220px]">
       <div className="p-5">
@@ -258,7 +258,7 @@ const ServiceMegaMenu = () => (
           <span className="text-4xl">🤖</span>
         </div>
         <div className="grid grid-cols-2 gap-1.5">
-          {[{ v:"200+",l:"AI Workflows" },{ v:"24/7",l:"Operations" },{ v:"80%+",l:"Time Saved" },{ v:"3X",l:"Efficiency" }].map((s) => (
+          {[{ v: "200+", l: "AI Workflows" }, { v: "24/7", l: "Operations" }, { v: "80%+", l: "Time Saved" }, { v: "3X", l: "Efficiency" }].map((s) => (
             <div key={s.l} className="bg-white rounded-lg p-1.5 shadow-sm text-center border border-gray-100">
               <p className="text-xs font-bold text-blue-900">{s.v}</p>
               <p className="text-[9px] text-gray-400">{s.l}</p>
@@ -337,11 +337,6 @@ const Navbar = () => {
                   onClick={() => toggleMenu("products")}>
                   Products <Chevron open={activeMenu === "products"} />
                 </span>
-                {activeMenu === "products" && (
-                  <div onMouseEnter={() => openMenu("products")} onMouseLeave={closeMenu}>
-                    <ProductMegaMenu />
-                  </div>
-                )}
               </li>
 
               <li className="cursor-pointer hover:text-blue-700 transition-colors"
@@ -350,11 +345,6 @@ const Navbar = () => {
                   onClick={() => toggleMenu("services")}>
                   Services <Chevron open={activeMenu === "services"} />
                 </span>
-                {activeMenu === "services" && (
-                  <div onMouseEnter={() => openMenu("services")} onMouseLeave={closeMenu}>
-                    <ServiceMegaMenu />
-                  </div>
-                )}
               </li>
 
               <li className="cursor-pointer hover:text-blue-700 transition-colors py-1">Case Study</li>
@@ -374,6 +364,28 @@ const Navbar = () => {
             </button>
           </div>
         </div>
+
+        {/* Products mega menu — full-width container, flex-centered */}
+        {activeMenu === "products" && (
+          <div
+            className="absolute top-full left-0 w-full flex justify-center px-4 z-50 pt-2"
+            onMouseEnter={() => openMenu("products")}
+            onMouseLeave={closeMenu}
+          >
+            <ProductMegaMenu />
+          </div>
+        )}
+
+        {/* Services mega menu — full-width container, flex-centered */}
+        {activeMenu === "services" && (
+          <div
+            className="absolute top-full left-0 w-full flex justify-center px-4 z-50 pt-2"
+            onMouseEnter={() => openMenu("services")}
+            onMouseLeave={closeMenu}
+          >
+            <ServiceMegaMenu />
+          </div>
+        )}
 
         {/* Mobile Menu */}
         {isOpen && (
