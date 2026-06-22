@@ -24,6 +24,7 @@ const cases = [
   },
 ];
 
+
 const CaseStudies = () => (
   <section className="py-16 lg:py-24 bg-white">
     <div className="max-w-7xl mx-auto px-5 lg:px-8">
