@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useModal } from "../context/ModalContext";
 import { HiArrowRight, HiMenu, HiX } from "react-icons/hi";
 import {
   HiBolt,
@@ -524,6 +525,7 @@ const ServiceMegaMenu = ({ onClose }) => (
 
 /* ─── Navbar ─────────────────────────────────────────────────── */
 const Navbar = () => {
+  const { open: openModal } = useModal();
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
   const hideTimeout = useRef(null);
@@ -593,16 +595,18 @@ const Navbar = () => {
               </li>
 
               <li className="cursor-pointer hover:text-blue-700 transition-colors py-1">
-                Case Study
+                <Link to="/case-study" className="hover:text-blue-700 transition-colors">Case Study</Link>
               </li>
-              <li className="cursor-pointer hover:text-blue-700 transition-colors py-1">
+              <li className="cursor-pointer hover:text-blue-700 transition-colors py-1" onClick={openModal}>
                 Contact Us
               </li>
             </ul>
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="hidden lg:flex bg-blue-900 text-white px-5 py-2.5 rounded-xl items-center gap-2 text-sm font-semibold hover:bg-blue-800 transition-colors shadow-md shadow-blue-900/20">
+            <button
+              onClick={openModal}
+              className="hidden lg:flex bg-blue-900 text-white px-5 py-2.5 rounded-xl items-center gap-2 text-sm font-semibold hover:bg-blue-800 transition-colors shadow-md shadow-blue-900/20">
               Book Discovery Call <HiArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -645,18 +649,25 @@ const Navbar = () => {
           <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 z-50">
             <div className="px-5 py-5">
               <ul className="flex flex-col gap-1 text-gray-700 font-medium text-sm mb-5">
-                {["Products", "Services", "Case Study", "Contact Us"].map(
-                  (item) => (
-                    <li
-                      key={item}
-                      className="py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer"
-                    >
-                      {item}
-                    </li>
-                  ),
-                )}
+                {[
+                  { label: "Products",   to: null,           modal: false },
+                  { label: "Services",   to: null,           modal: false },
+                  { label: "Case Study", to: "/case-study",  modal: false },
+                  { label: "Contact Us", to: null,           modal: true  },
+                ].map((item) => (
+                  <li
+                    key={item.label}
+                    className="py-3 px-4 rounded-xl hover:bg-gray-50 transition-colors cursor-pointer"
+                    onClick={() => { setIsOpen(false); if (item.modal) openModal(); }}
+                  >
+                    {item.to ? <Link to={item.to} className="block w-full">{item.label}</Link> : item.label}
+                  </li>
+                ))}
               </ul>
-              <button className="w-full bg-blue-900 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-blue-800 transition text-sm">
+              <button
+                onClick={() => { setIsOpen(false); openModal(); }}
+                className="w-full bg-blue-900 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-blue-800 transition text-sm"
+              >
                 Book Discovery Call <HiArrowRight className="w-4 h-4" />
               </button>
             </div>

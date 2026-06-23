@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ModalProvider } from "./context/ModalContext";
+import DiscoveryModal from "./components/DiscoveryModal";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
@@ -10,6 +12,7 @@ import CaseStudies from "./sections/CaseStudies";
 import CTA from "./sections/CTA";
 import AIAutomation from "./pages/AIAutomation";
 import SEO from "./pages/SEO";
+import CaseStudyPage from "./pages/CaseStudy";
 function App() {
   const Home = () => (
     <div>
@@ -25,15 +28,19 @@ function App() {
 
   return (
     <Router>
-      <div className="font-[Inter]">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/ai-automation" element={<AIAutomation />} />
-          <Route path="/seo" element={<SEO />} />
-        </Routes>
-        <Footer />
-      </div>
+      <ModalProvider>
+        <div className="font-[Inter]">
+          <DiscoveryModal />
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/ai-automation" element={<AIAutomation />} />
+            <Route path="/seo" element={<SEO />} />
+            <Route path="/case-study" element={<CaseStudyPage />} />
+          </Routes>
+          <Footer />
+        </div>
+      </ModalProvider>
     </Router>
   );
 }
