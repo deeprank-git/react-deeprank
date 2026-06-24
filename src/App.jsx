@@ -13,6 +13,7 @@ import CTA from "./sections/CTA";
 import AIAutomation from "./pages/AIAutomation";
 import SEO from "./pages/SEO";
 import CaseStudyPage from "./pages/CaseStudy";
+import CustomSolutions from "./pages/CustomSolutions";
 function App() {
   const Home = () => (
     <div>
@@ -37,6 +38,7 @@ function App() {
             <Route path="/ai-automation" element={<AIAutomation />} />
             <Route path="/seo" element={<SEO />} />
             <Route path="/case-study" element={<CaseStudyPage />} />
+            <Route path="/custom-solutions" element={<CustomSolutions />} />
           </Routes>
           <Footer />
         </div>

@@ -170,6 +170,7 @@ const serviceCards = [
   },
   {
     name: "Custom Solutions",
+    route: "/custom-solutions",
     gradient: "from-indigo-800 via-indigo-700 to-blue-900",
     visual: (
       <div className="grid grid-cols-2 gap-1 p-2 h-full items-center">
@@ -411,22 +412,23 @@ const ServiceMegaMenu = ({ onClose }) => (
           ))}
         </div>
         <div className="grid grid-cols-4 gap-2.5">
-          {serviceCards.slice(4).map((s) => (
-            <div
-              key={s.name}
-              className={`rounded-xl bg-gradient-to-br ${s.gradient} h-24 cursor-pointer group overflow-hidden relative hover:scale-[1.03] transition-transform duration-200 shadow-sm`}
-            >
-              <div className="h-14 overflow-hidden">{s.visual}</div>
-              <div className="px-2 pb-2">
-                <p className="text-white text-[10px] font-semibold truncate">
-                  {s.name}
-                </p>
-                <span className="text-white/60 text-[8px] flex items-center gap-0.5 group-hover:text-white/90 transition">
-                  Explore <HiArrowRight className="w-2 h-2" />
-                </span>
-              </div>
-            </div>
-          ))}
+          {serviceCards.slice(4).map((s) => {
+            const inner = (
+              <>
+                <div className="h-14 overflow-hidden">{s.visual}</div>
+                <div className="px-2 pb-2">
+                  <p className="text-white text-[10px] font-semibold truncate">{s.name}</p>
+                  <span className="text-white/60 text-[8px] flex items-center gap-0.5 group-hover:text-white/90 transition">
+                    Explore <HiArrowRight className="w-2 h-2" />
+                  </span>
+                </div>
+              </>
+            );
+            const cls = `rounded-xl bg-gradient-to-br ${s.gradient} h-24 cursor-pointer group overflow-hidden relative hover:scale-[1.03] transition-transform duration-200 shadow-sm`;
+            return s.route
+              ? <Link key={s.name} to={s.route} onClick={onClose} className={`block ${cls}`}>{inner}</Link>
+              : <div key={s.name} className={cls}>{inner}</div>;
+          })}
           <div />
         </div>
       </div>
