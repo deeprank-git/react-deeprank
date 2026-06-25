@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import emailjs from "@emailjs/browser";
+import ReCAPTCHA from "react-google-recaptcha";
 import {
   HiX, HiCheck, HiArrowRight, HiChevronLeft, HiChevronRight,
   HiPhone, HiMail, HiLockClosed, HiBadgeCheck,
@@ -67,10 +68,12 @@ const BLANK = {
 /* ─── component ───────────────────────────────────────────── */
 const DiscoveryModal = () => {
   const { isOpen, close } = useModal();
-  const [form, setForm]     = useState(BLANK);
-  const [errors, setErrors] = useState({});
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [form, setForm]       = useState(BLANK);
+  const [errors, setErrors]   = useState({});
+  const [status, setStatus]   = useState("idle"); // idle | sending | success | error
   const [calDate, setCalDate] = useState(new Date(2026, 6));   // July 2026
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const recaptchaRef = useRef(null);
 
   const set = (k, v) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -98,6 +101,7 @@ const DiscoveryModal = () => {
       e.email = "Valid email required";
     if (!form.date)      e.date     = "Please choose a date";
     if (!form.time)      e.time     = "Please select a time slot";
+    if (!captchaToken)   e.captcha  = "Please complete the CAPTCHA";
     setErrors(e);
     return !Object.keys(e).length;
   };
@@ -132,9 +136,11 @@ const DiscoveryModal = () => {
       await emailjs.send(sid, import.meta.env.VITE_EMAILJS_TEMPLATE_ID_USER,
         { ...base, to_email: form.email }, key);
       setStatus("success");
-      setTimeout(() => { close(); setForm(BLANK); setStatus("idle"); }, 3000);
+      setTimeout(() => { close(); setForm(BLANK); setStatus("idle"); setCaptchaToken(null); recaptchaRef.current?.reset(); }, 3000);
     } catch {
       setStatus("error");
+      recaptchaRef.current?.reset();
+      setCaptchaToken(null);
     }
   };
 
@@ -463,6 +469,19 @@ const DiscoveryModal = () => {
                 🔒 Your information is secure and will never be shared.
               </p>
             </section>
+
+            {/* ── reCAPTCHA ── */}
+            <div className="flex flex-col items-start gap-1">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                onChange={(token) => { setCaptchaToken(token); setErrors((e) => ({ ...e, captcha: "" })); }}
+                onExpired={() => setCaptchaToken(null)}
+              />
+              {errors.captcha && (
+                <p className="text-red-500 text-xs mt-1">{errors.captcha}</p>
+              )}
+            </div>
 
             {/* ── Submit ── */}
             <div>

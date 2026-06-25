@@ -18,6 +18,7 @@ import DigitalMarketing from "./pages/DigitalMarketing";
 import Softwaredevelopment from "./pages/Softwaredevelopment";
 import WebDevlopment from "./pages/WebDevelopment";
 import NftDevelopment from "./pages/NftDevelopment";
+import TsamuelCaseStudy from "./pages/TsamuelCaseStudy";
 function App() {
   const Home = () => (
     <div>
@@ -45,8 +46,9 @@ function App() {
             <Route path="/custom-solutions" element={<CustomSolutions />} />
             <Route path="/digital-marketing" element={<DigitalMarketing />} />
             <Route path="/web-development" element={<WebDevlopment />} />
-            <Route path="/software-development" element={<Softwaredevelopment />} />  
-            <route path="/nft-development" element={<NftDevelopment />} />
+            <Route path="/software-development" element={<Softwaredevelopment />} />
+            <Route path="/nft-development" element={<NftDevelopment />} />
+            <Route path="/case-study/tsamuel-estate-agents" element={<TsamuelCaseStudy />} />
           </Routes>
           <Footer />
         </div>
