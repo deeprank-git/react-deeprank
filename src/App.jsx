@@ -14,6 +14,10 @@ import AIAutomation from "./pages/AIAutomation";
 import SEO from "./pages/SEO";
 import CaseStudyPage from "./pages/CaseStudy";
 import CustomSolutions from "./pages/CustomSolutions";
+import DigitalMarketing from "./pages/DigitalMarketing";
+import Softwaredevelopment from "./pages/Softwaredevelopment";
+import WebDevlopment from "./pages/WebDevelopment";
+import NftDevelopment from "./pages/NftDevelopment";
 function App() {
   const Home = () => (
     <div>
@@ -39,10 +43,25 @@ function App() {
             <Route path="/seo" element={<SEO />} />
             <Route path="/case-study" element={<CaseStudyPage />} />
             <Route path="/custom-solutions" element={<CustomSolutions />} />
+            <Route path="/digital-marketing" element={<DigitalMarketing />} />
+            <Route path="/web-development" element={<WebDevlopment />} />
+            <Route path="/software-development" element={<Softwaredevelopment />} />  
+            <route path="/nft-development" element={<NftDevelopment />} />
           </Routes>
           <Footer />
         </div>
       </ModalProvider>
+      {/* <div className="font-[Inter]">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/ai-automation" element={<AIAutomation />} />
+          <Route path="/seo" element={<SEO />} />
+          <Route path="/digital-marketing" element={<DigitalMarketing />} />
+          <Route path="/software-development" element={<Softwaredevelopment />} />  
+        </Routes>
+        <Footer />
+      </div> */}
     </Router>
   );
 }
