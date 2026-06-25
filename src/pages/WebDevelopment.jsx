@@ -22,7 +22,7 @@ import hero1 from "../assets/hero1.png";
 import hero3 from "../assets/hero3.png";
 import hero4 from "../assets/hero4.png";
 
-import heroweb from "../assets/heroweb.png";
+import heroweb1 from "../assets/heroweb1.png";
 import webdev1 from "../assets/webdev1.png";
 const services = [
   {
@@ -131,7 +131,7 @@ const WebDevelopment = () => {
 
     <div className="relative flex justify-center">
   <img
-    src={heroweb}
+    src={heroweb1}
     alt="Web Development"
     className="w-full max-w-[900px] object-contain"
   />

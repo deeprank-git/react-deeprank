@@ -46,7 +46,7 @@ function App() {
             <Route path="/digital-marketing" element={<DigitalMarketing />} />
             <Route path="/web-development" element={<WebDevlopment />} />
             <Route path="/software-development" element={<Softwaredevelopment />} />  
-            <route path="/nft-development" element={<NftDevelopment />} />
+            <Route path="/nft-development" element={<NftDevelopment />} />
           </Routes>
           <Footer />
         </div>
