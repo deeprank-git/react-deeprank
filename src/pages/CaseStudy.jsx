@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { HiArrowRight, HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -202,9 +203,9 @@ const FeaturedCase = () => {
                   </div>
                 ))}
               </div>
-              <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/30">
+              <Link to="/case-study/tsamuel-estate-agents" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/30">
                 View Full Case Study <HiArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             <div className="relative hidden lg:block">
               <img src={hero4} alt="Featured" className="w-full h-full object-cover" />

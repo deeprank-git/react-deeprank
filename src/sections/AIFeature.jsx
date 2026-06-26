@@ -1,96 +1,102 @@
 import { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
-import hero from "../assets/hero.png";
+import hero3 from "../assets/hero3.png";
+import automation from "../assets/automation.png";
+import heroweb from "../assets/heroweb.png";
+import Manufacturing from "../assets/Manufacturing.png";
 
-const tabs = ["AI Solutions", "Automation", "Web & Device", "Marketing"];
+const tabs = [
+  { label: "AI Solutions", image: hero3 },
+  { label: "Automation", image: automation },
+  { label: "Web Develop", image: heroweb },
+  { label: "Marketing", image: Manufacturing },
+];
 
 const tabContent = {
   "AI Solutions": {
-    badge: "AI & AUTOMATION",
     title: "AI Solutions",
-    desc: "Custom AI Agents, Chatbots, and intelligent systems built to automate complex tasks. We build AI employees that work 24/7 so your team can focus on what matters most.",
+    desc: "Custom AI Agents, Chatbots, and intelligent systems built to automate complex tasks and drive results.",
+    btn: "Discover AI Solutions",
   },
-  Automation: {
-    badge: "AUTOMATION",
+  "Automation": {
     title: "Workflow Automation",
-    desc: "Streamline repetitive tasks and build end-to-end automation pipelines. From CRM triggers to multi-step workflows — automate the work your team shouldn't do manually.",
+    desc: "Streamline repetitive tasks and build end-to-end automation pipelines across your entire business.",
+    btn: "Discover Automation",
   },
-  "Web & Device": {
-    badge: "DEVELOPMENT",
+  "Web Develop": {
     title: "Web & App Development",
-    desc: "High-performance websites, web apps, and cross-platform mobile applications. Built with modern frameworks, optimised for speed, and designed to convert.",
+    desc: "High-performance websites, web apps, and cross-platform mobile applications built to convert.",
+    btn: "Discover Web Develop",
   },
-  Marketing: {
-    badge: "GROWTH MARKETING",
+  "Marketing": {
     title: "Digital Marketing",
-    desc: "Data-driven strategies across Google, Meta, LinkedIn, and more. We combine paid media, SEO, and conversion optimisation to maximise ROI.",
+    desc: "Data-driven strategies across Google, Meta, LinkedIn and more — combining paid media, SEO and CRO.",
+    btn: "Discover Marketing",
   },
 };
 
+const pad = (n) => String(n).padStart(2, "0");
+
 const AIFeature = () => {
-  const [active, setActive] = useState("AI Solutions");
-  const content = tabContent[active];
+  const [activeIdx, setActiveIdx] = useState(0);
+  const tab = tabs[activeIdx];
+  const content = tabContent[tab.label];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-14 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="flex gap-10 lg:gap-14 items-center">
 
-          {/* Left */}
-          <div>
-            <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
-              {content.badge}
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight mb-4">
+          {/* ── Left 30% ── */}
+          <div className="w-[30%] shrink-0">
+            <p className="text-xs font-bold text-gray-400 mb-5 tracking-widest">
+              {pad(activeIdx + 1)}{" "}
+              <span className="text-gray-300 mx-1">/</span>{" "}
+              {pad(tabs.length)}
+            </p>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight mb-4">
               {content.title}
             </h2>
-            <p className="text-gray-500 text-base leading-relaxed mb-7 max-w-lg">
+            <p className="text-gray-500 text-sm leading-relaxed mb-8">
               {content.desc}
             </p>
-            <button className="flex items-center gap-2 bg-blue-900 text-white px-6 py-3.5 rounded-xl font-semibold text-sm hover:bg-blue-800 transition-all shadow-lg shadow-blue-900/20">
-              Discover {active} <HiArrowRight className="w-4 h-4" />
-            </button>
 
-            {/* Tabs */}
-            <div className="overflow-x-auto mt-10">
-              <div className="flex gap-1 border border-gray-100 bg-gray-50 p-1 rounded-xl w-fit">
-                {tabs.map((t) => (
+            <button className="inline-flex items-center gap-2 bg-[#08104A] hover:bg-blue-900 text-white px-6 py-3.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-900/20">
+              {content.btn} <HiArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+
+          {/* ── Right 70% ── */}
+          <div className="flex-1 relative">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-900/5">
+              <img
+                src={tab.image}
+                alt={tab.label}
+                className="w-full h-72 sm:h-88 lg:h-105 object-cover transition-all duration-500"
+              />
+
+              {/* Tab buttons — bottom of image */}
+              <div className="absolute bottom-0 left-0 right-0 flex items-center gap-2 px-4 py-3 bg-linear-to-t from-black/30 to-transparent">
+                {tabs.map((t, i) => (
                   <button
-                    key={t}
-                    onClick={() => setActive(t)}
-                    className={`px-3 py-2 text-xs font-semibold rounded-lg transition-all whitespace-nowrap ${
-                      active === t
-                        ? "bg-white text-blue-700 shadow-sm"
-                        : "text-gray-500 hover:text-gray-700"
-                    }`}
+                    key={t.label}
+                    onClick={() => setActiveIdx(i)}
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold border transition-all whitespace-nowrap ${activeIdx === i
+                        ? "bg-white border-white text-[#08104A] shadow-md"
+                        : "bg-white/20 border-white/30 text-white hover:bg-white/40"
+                      }`}
                   >
-                    {t}
+                    {activeIdx === i && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+                    )}
+                    {t.label}
                   </button>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right */}
-          <div className="relative mt-4 lg:mt-0">
-            <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/5">
-              <img src={hero} alt="AI Solutions" className="w-full h-64 sm:h-80 lg:h-105 object-cover" />
-            </div>
-            {/* Floating card */}
-            <div className="hidden sm:block absolute bottom-5 left-5 bg-white rounded-2xl shadow-xl p-4 border border-gray-100 max-w-45">
-              <p className="text-[10px] text-gray-400 font-medium mb-2">How Can I Help You?</p>
-              <div className="flex flex-col gap-1.5">
-                {["Generate Report", "Automate Task", "Analyze Data"].map((item) => (
-                  <div key={item} className="bg-blue-50 text-blue-700 text-[11px] font-medium px-3 py-1.5 rounded-lg cursor-pointer hover:bg-blue-100 transition">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="absolute top-4 right-4 bg-blue-900/90 backdrop-blur-sm text-white text-[11px] font-bold px-3 py-2 rounded-xl shadow-lg">
-              AI Powered ⚡
-            </div>
-          </div>
         </div>
       </div>
     </section>
