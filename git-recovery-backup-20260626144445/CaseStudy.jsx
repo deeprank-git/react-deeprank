@@ -20,12 +20,6 @@ import drryn from "../assets/drryn.png";
 import aisutilities from "../assets/aisutilities.png";
 import lumani from "../assets/lumani.png";
 import tsamuelestate from "../assets/tsamuelestate.png";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-import TsamuelCaseStudy from "./TsamuelCaseStudy.jsx";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 
 
 
@@ -158,124 +152,7 @@ const testimonials = [
   { name: "Michael Roberts",  role: "CEO, AG UK",             quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.",             rating: 5 },
   { name: "Lua Pang",         role: "Owner, Luxury Hotels",   quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.",        rating: 5 },
 ];
-const featuredProjects = [
-  {
-    title: "T Samuel Estate",
-    image: tsamuelestate,
-    description:
-      "Luxury real estate platform with SEO and AI-powered lead generation.",
-    stats: [
-      { value: "340%", label: "Organic Traffic" },
-      { value: "120%", label: "Lead Growth" },
-      { value: "85%", label: "Lower CPL" },
-    ],
-    link: "/case-study/tsamuel-estate",
-  },
 
-  {
-    title: "Amisha Healing Hub",
-    image: healing,
-    description:
-      "Healthcare website with appointment booking and patient automation.",
-    stats: [
-      { value: "180%", label: "Patient Leads" },
-      { value: "95%", label: "Appointments" },
-      { value: "60%", label: "Retention" },
-    ],
-    link: "/case-study/amisha-healing",
-  },
-
-  {
-    title: "Yogalife Global",
-    image: yogalife,
-    description:
-      "Online yoga education platform with memberships and courses.",
-    stats: [
-      { value: "220%", label: "Organic Growth" },
-      { value: "140%", label: "Course Sales" },
-      { value: "65%", label: "Engagement" },
-    ],
-    link: "/case-study/yogalife",
-  },
-
-  {
-    title: "Gebe Luxe",
-    image: gebeluxe,
-    description:
-      "Luxury furniture brand delivering premium online experiences.",
-    stats: [
-      { value: "95%", label: "Conversions" },
-      { value: "140%", label: "Revenue" },
-      { value: "70%", label: "Leads" },
-    ],
-    link: "/case-study/gebe-luxe",
-  },
-
-  {
-    title: "AIS Utilities",
-    image: aisutilities,
-    description:
-      "Industrial workflow automation platform improving operational efficiency.",
-    stats: [
-      { value: "110%", label: "Efficiency" },
-      { value: "55%", label: "Automation" },
-      { value: "80%", label: "Accuracy" },
-    ],
-    link: "/case-study/ais-utilities",
-  },
-
-  {
-    title: "Lumani Systems",
-    image: lumani,
-    description:
-      "Architectural systems company with premium digital presence.",
-    stats: [
-      { value: "95%", label: "Enquiries" },
-      { value: "130%", label: "Traffic" },
-      { value: "72%", label: "Conversions" },
-    ],
-    link: "/case-study/lumani-systems",
-  },
-
-  {
-    title: "Exademy",
-    image: exademy,
-    description:
-      "Education platform with admissions and learning management.",
-    stats: [
-      { value: "150%", label: "Enrollments" },
-      { value: "220%", label: "Traffic" },
-      { value: "90%", label: "Leads" },
-    ],
-    link: "/case-study/exademy",
-  },
-
-  {
-    title: "DRRYN",
-    image: drryn,
-    description:
-      "Premium fashion eCommerce website with seamless shopping experience.",
-    stats: [
-      { value: "3.1x", label: "Revenue" },
-      { value: "175%", label: "Sales" },
-      { value: "68%", label: "Returning Users" },
-    ],
-    link: "/case-study/drryn",
-  },
-
-  {
-    title: "Rewari Handicrafts",
-    image: handicraft,
-    description:
-      "Traditional handicraft store selling products globally.",
-    stats: [
-      { value: "170%", label: "Online Sales" },
-      { value: "240%", label: "Traffic" },
-      { value: "90%", label: "Orders" },
-    ],
-    link: "/case-study/rewari-handicrafts",
-  },
-];
 /* ── animated counter hook ── */
 function useCounter(target, duration = 1800, start = false) {
   const [val, setVal] = useState(0);
@@ -392,106 +269,45 @@ const HeroStats = () => {
 const FeaturedCase = () => {
   const [ref, visible] = useReveal();
   return (
-    <section ref={ref} className="bg-gray-50 py-14">
-
-  <div className="max-w-7xl mx-auto px-6">
-
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{
-        delay: 3500,
-        disableOnInteraction: false,
-      }}
-      loop
-      spaceBetween={20}
-      slidesPerView={1}
-    >
-
-      {featuredProjects.map((project) => (
-
-        <SwiperSlide key={project.title}>
-
-          <div className="bg-gray-900 rounded-[32px] overflow-hidden">
-
-            <div className="grid lg:grid-cols-[1fr_380px]">
-
-              {/* LEFT */}
-
-              <div className="p-10 lg:p-14">
-
-                <span className="inline-flex rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
-                  Featured Case Study
-                </span>
-
-                <h2 className="mt-6 text-5xl font-black text-white">
-                  {project.title}
-                </h2>
-
-                <p className="mt-6 max-w-xl text-slate-300 leading-8">
-                  {project.description}
-                </p>
-
-                <div className="grid grid-cols-3 gap-5 mt-10">
-
-                  {project.stats.map((stat) => (
-
-                    <div
-                      key={stat.label}
-                      className="rounded-2xl border border-white/10 p-5"
-                    >
-                      <h3 className="text-4xl font-black text-blue-400">
-                        {stat.value}
-                      </h3>
-
-                      <p className="mt-2 text-xs text-slate-400">
-                        {stat.label}
-                      </p>
-
-                    </div>
-
-                  ))}
-
-                </div>
-
-                <Link
-                  to={project.link}
-                  className="inline-flex items-center gap-3 mt-10 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white hover:bg-blue-500"
-                >
-                  View Full Case Study
-                  <HiArrowRight className="w-5 h-5" />
-                </Link>
-
+    <section ref={ref} className="bg-gray-50 py-12">
+      <div className="max-w-7xl mx-auto px-5 lg:px-8">
+        <div className={`bg-gray-900 rounded-2xl overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid lg:grid-cols-[1fr_340px]">
+            <div className="p-8 lg:p-12">
+              <span className="inline-block text-[10px] font-bold tracking-widest text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full mb-4">
+                Featured Case Study
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-4">
+                Tsamuel Estate Agents
+              </h2>
+              <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
+                A complete top-of-funnel SEO strategy that drove organic traffic and increased
+                qualified leads by over 340%, transforming their digital presence in under 6 months.
+              </p>
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                {[
+                  { v: "340%", l: "Organic Traffic Growth" },
+                  { v: "120%", l: "Lead Form Submissions" },
+                  { v: "85%",  l: "Cost Per Lead Reduction" },
+                ].map((s) => (
+                  <div key={s.l} className="border border-white/10 rounded-xl p-4">
+                    <p className="text-3xl font-black text-blue-400 mb-1">{s.v}</p>
+                    <p className="text-xs text-gray-400 leading-snug">{s.l}</p>
+                  </div>
+                ))}
               </div>
-
-              {/* RIGHT */}
-
-              <div className="relative hidden lg:block">
-
-                <img
-                  src={project.image}
-                  className="h-full w-full object-cover"
-                  alt={project.title}
-                />
-
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gray-900" />
-
-              </div>
-
+              <Link to="/case-study/tsamuel-estate-agents" className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/30">
+                View Full Case Study <HiArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-
+            <div className="relative hidden lg:block">
+              <img src={tsamuelestate} alt="Featured" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-linear-to-l from-transparent to-gray-900/60" />
+            </div>
           </div>
-
-        </SwiperSlide>
-
-      ))}
-
-    </Swiper>
-
-  </div>
-
-</section>
+        </div>
+      </div>
+    </section>
   );
 };
 
