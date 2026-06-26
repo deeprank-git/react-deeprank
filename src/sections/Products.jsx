@@ -1,49 +1,76 @@
 import { HiArrowRight } from "react-icons/hi";
-import hero1 from "../assets/hero1.png";
-import hero2 from "../assets/hero2.png";
-import hero3 from "../assets/hero3.png";
+import Sowlio from "../assets/Sowlio.png";
+import Taskfu from "../assets/Taskfu.png";
+import EasyCRM from "../assets/EasyCRM.png";
 
 const products = [
-  { tag: "SOCIAL MEDIA", name: "Swolio",   desc: "Schedule, publish and analyse your social media presence from one powerful place.",         link: "Explore Swolio",   img: hero1, accent: "from-purple-600 to-purple-900", tagBg: "bg-purple-100 text-purple-700" },
-  { tag: "PRODUCTIVITY",  name: "TaskFU",   desc: "Assign, track and complete work faster with smart project management and automation.",       link: "Explore TaskFU",   img: hero2, accent: "from-blue-600 to-blue-900",   tagBg: "bg-blue-100 text-blue-700"   },
-  { tag: "CRM",           name: "EasyCRM",  desc: "Convert more leads, close deals faster, and retain clients longer with smart CRM tools.",   link: "Explore EasyCRM",  img: hero3, accent: "from-emerald-600 to-teal-900", tagBg: "bg-emerald-100 text-emerald-700" },
+  {
+    name: "Sowlio",
+    desc: "Build Your Professional Identity in Minutes",
+    link: "Explore Swolio",
+    img: Sowlio,
+    linkColor: "text-blue-600",
+  },
+  {
+    name: "TaskfU",
+    desc: "Projects and task Management reimagined.",
+    link: "Explore Taskfu",
+    img: Taskfu,
+    linkColor: "text-green-500",
+  },
+  {
+    name: "EasyCRM",
+    desc: "Customer Relationship Management built for Growth.",
+    link: "Explore EasyCRM",
+    img: EasyCRM,
+    linkColor: "text-blue-600",
+  },
 ];
 
 const Products = () => (
-  <section className="py-16 lg:py-24 bg-gray-50">
+  <section className="py-14 lg:py-20 bg-white">
     <div className="max-w-7xl mx-auto px-5 lg:px-8">
+
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
-        <div>
-          <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-3">Our Products</span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 leading-tight">
-            Products Built for Scale
-          </h2>
-        </div>
-        <button className="self-start sm:self-auto flex items-center gap-2 text-sm font-semibold text-blue-700 border border-blue-200 bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-xl transition-colors whitespace-nowrap">
-          View All <HiArrowRight className="w-4 h-4" />
-        </button>
+      <div className="mb-10">
+        <p className="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3">
+          Our Products
+        </p>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight">
+          Products Built for Scale
+        </h2>
       </div>
 
       {/* Cards */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {products.map((p) => (
-          <div key={p.name} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-            <div className="relative h-48 overflow-hidden">
-              <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className={`absolute inset-0 bg-linear-to-t ${p.accent} opacity-70`} />
-              <span className={`absolute top-4 left-4 text-[10px] font-bold px-2.5 py-1 rounded-full ${p.tagBg}`}>{p.tag}</span>
-            </div>
-            <div className="p-6">
-              <h3 className="text-2xl font-black text-gray-900 mb-2">{p.name}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-5">{p.desc}</p>
-              <button className="flex items-center gap-2 text-blue-700 font-semibold text-sm group/btn hover:gap-3 transition-all">
+          <div
+            key={p.name}
+            className="flex bg-gray-50 rounded-2xl border border-gray-100 h-68 px-3 overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all duration-300 min-h-48"
+          >
+            {/* Left — text */}
+            <div className="flex flex-col justify-between p-6 flex-1 min-w-0">
+              <div>
+                <h3 className="text-lg font-black text-[#08104A] mb-2">{p.name}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{p.desc}</p>
+              </div>
+              <button className={`flex items-center gap-1.5 font-semibold text-sm mt-5 hover:gap-3 transition-all ${p.linkColor}`}>
                 {p.link} <HiArrowRight className="w-4 h-4" />
               </button>
+            </div>
+
+            {/* Right — image */}
+            <div className="w-44 shrink-0 flex items-center justify-center overflow-hidden">
+              <img
+                src={p.img}
+                alt={p.name}
+                className="w-full h-full object-contain object-center"
+              />
             </div>
           </div>
         ))}
       </div>
+
     </div>
   </section>
 );
