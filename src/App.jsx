@@ -20,6 +20,14 @@ import WebDevlopment from "./pages/WebDevelopment";
 import NftDevelopment from "./pages/NftDevelopment";
 import TsamuelCaseStudy from "./pages/TsamuelCaseStudy";
 import AmishaHealing from "./pages/AmishaHealing";
+import Yogalife from "./pages/Yogalife";
+import GubeLuxe from "./pages/GubeLuxe";
+
+import LumaniSystem from "./pages/LumaniSystem";
+import AisUtilities from "./pages/AisUtilities";
+import Exademy from "./pages/Exademy";
+import DRRYN from "./pages/DRRYN";
+import RewariHandicrafts from "./pages/RewariHandicrafts";
 function App() {
   const Home = () => (
     <div>
@@ -58,6 +66,34 @@ function App() {
             <Route
   path="/case-study/amisha-healing"
   element={<AmishaHealing />}
+/>
+ <Route
+  path="/case-study/yogalife"
+  element={<Yogalife />}
+/>
+<Route
+  path="/case-study/gubeluxe"
+  element={<GubeLuxe />}
+/>
+<Route
+  path="/case-study/lumani-systems"
+  element={<LumaniSystem />}
+/>
+<Route
+  path="/case-study/ais-utilities"
+  element={<AisUtilities/>}
+/>
+<Route
+  path="/case-study/exademy"
+  element={<Exademy />}
+/>
+<Route
+  path="/case-study/drryn"
+  element={<DRRYN />}
+/>
+<Route
+  path="/case-study/rewari-handicrafts"
+  element={<RewariHandicrafts />}
 />
           </Routes>
           <Footer />

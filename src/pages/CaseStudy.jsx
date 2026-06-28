@@ -23,6 +23,11 @@ import tsamuelestate from "../assets/tsamuelestate.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import TsamuelCaseStudy from "./TsamuelCaseStudy.jsx";
+import Yogalife from "./Yogalife.jsx";
+import GubeLuxe from "./GubeLuxe.jsx";
+import Exademy from "./Exademy.jsx";
+import LumaniSystem from "./LumaniSystem.jsx";
+import AisUtilities from "./AisUtilities.jsx";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -56,7 +61,8 @@ const caseStudies = [
     stat: "+180%",
     label: "Patient Leads",
     title: "Amisha Healing Hub",
-    desc: "AI-powered appointment booking, wellness programs and patient management platform increased qualified enquiries and bookings."
+    desc: "AI-powered appointment booking, wellness programs and patient management platform increased qualified enquiries and bookings.",
+    link: "/case-study/amisha-healing",
   },
 
   {
@@ -66,7 +72,8 @@ const caseStudies = [
     stat: "+120%",
     label: "Organic Traffic",
     title: "Yogalife Global",
-    desc: "Online yoga education platform with multilingual courses, memberships and digital learning experience."
+    desc: "Online yoga education platform with multilingual courses, memberships and digital learning experience.",
+    link: "/case-study/yogalife",
   },
 
   {
@@ -76,7 +83,8 @@ const caseStudies = [
     stat: "+95%",
     label: "Conversions",
     title: "Gebe Luxe",
-    desc: "Luxury furniture and hospitality brand website delivering premium customer experiences and higher conversions."
+    desc: "Luxury furniture and hospitality brand website delivering premium customer experiences and higher conversions.",
+    link: "/case-study/gubeluxe",
   },
 
   {
@@ -86,7 +94,8 @@ const caseStudies = [
     stat: "+140%",
     label: "Qualified Leads",
     title: "T Samuel Estate",
-    desc: "Luxury real estate website helping buyers discover premium properties through AI-powered lead generation."
+    desc: "Luxury real estate website helping buyers discover premium properties through AI-powered lead generation.",
+    link: "/case-study/tsamuel-estate",
   },
 
   {
@@ -96,7 +105,8 @@ const caseStudies = [
     stat: "+110%",
     label: "Productivity",
     title: "AIS Utilities",
-    desc: "Industrial workflow automation platform improving productivity and reducing manual operational tasks."
+    desc: "Industrial workflow automation platform improving productivity and reducing manual operational tasks.",
+    link: "/case-study/ais-utilities",
   },
 
   {
@@ -106,7 +116,8 @@ const caseStudies = [
     stat: "+95%",
     label: "Project Enquiries",
     title: "Lumani Systems",
-    desc: "Architectural fenestration company website showcasing premium aluminium and glass solutions."
+    desc: "Architectural fenestration company website showcasing premium aluminium and glass solutions.",
+    link: "/case-study/lumani-systems",
   },
 
   {
@@ -116,7 +127,8 @@ const caseStudies = [
     stat: "+150%",
     label: "Student Enrolments",
     title: "Exademy",
-    desc: "Modern coaching platform with online admissions, learning management and student engagement features."
+    desc: "Modern coaching platform with online admissions, learning management and student engagement features.",
+    link: "/case-study/exademy",
   },
 
   {
@@ -126,7 +138,8 @@ const caseStudies = [
     stat: "3.1x",
     label: "Revenue Growth",
     title: "DRRYN",
-    desc: "Fashion eCommerce platform with seamless shopping, payment integration and inventory management."
+    desc: "Fashion eCommerce platform with seamless shopping, payment integration and inventory management.",
+    link: "/case-study/drryn",
   },
 
   {
@@ -136,7 +149,8 @@ const caseStudies = [
     stat: "+170%",
     label: "Online Sales",
     title: "Rewari Handicrafts",
-    desc: "Traditional handicrafts marketplace helping artisans sell products globally through a premium online store."
+    desc: "Traditional handicrafts marketplace helping artisans sell products globally through a premium online store.",
+    link: "/case-study/rewari-handicrafts",
   },
 ];
 
@@ -208,7 +222,7 @@ const featuredProjects = [
       { value: "140%", label: "Revenue" },
       { value: "70%", label: "Leads" },
     ],
-    link: "/case-study/gebe-luxe",
+    link: "/case-study/gubeluxe",
   },
 
   {
@@ -554,9 +568,16 @@ const CaseGrid = () => {
               <div className="p-4">
                 <h3 className="text-sm font-bold text-gray-900 leading-snug mb-1.5">{c.title}</h3>
                 <p className="text-gray-500 text-xs leading-relaxed mb-3">{c.desc}</p>
-                <button className="flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all">
+                {/* <button className="flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all">
                   View Case Study <HiArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </button> */}
+                <Link
+  to={c.link}
+  className="inline-flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all"
+>
+  View Case Study
+  <HiArrowRight className="w-3.5 h-3.5" />
+</Link>
               </div>
             </div>
           ))}
