@@ -95,6 +95,7 @@ const serviceCards = [
   },
   {
     name: "Digital Marketing",
+   route: "/digital-marketing",
     gradient: "from-blue-700 via-blue-600 to-sky-700",
     visual: (
       <div className="flex flex-col gap-1 items-center justify-center h-full">
@@ -115,6 +116,7 @@ const serviceCards = [
   },
   {
     name: "Software Dev",
+    route: "/software-development",
     gradient: "from-slate-800 via-slate-700 to-slate-900",
     visual: (
       <div className="flex flex-col justify-center h-full px-2 gap-0.5">
@@ -131,6 +133,7 @@ const serviceCards = [
   },
   {
     name: "Web Development",
+    route: "/web-development",
     gradient: "from-blue-800 via-blue-700 to-blue-900",
     visual: (
       <div className="flex items-center justify-center h-full">
@@ -150,6 +153,7 @@ const serviceCards = [
   },
   {
     name: "NFT Development",
+    route: "/nft-development",
     gradient: "from-purple-900 via-purple-800 to-indigo-900",
     visual: (
       <div className="flex items-center justify-center h-full">

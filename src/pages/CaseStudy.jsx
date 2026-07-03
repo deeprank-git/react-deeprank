@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { HiArrowRight, HiChevronLeft, HiChevronRight, HiStar } from "react-icons/hi";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
@@ -10,6 +11,28 @@ import hero5 from "../assets/hero5.png";
 import hero1 from "../assets/hero1.png";
 import hero2 from "../assets/hero2.png";
 import hero3 from "../assets/hero3.png";
+import healing from "../assets/healing.png";
+import yogalife from "../assets/yogalife.png";
+import gebeluxe from "../assets/gebeluxe.png";
+import handicraft from "../assets/handicraft.png";
+import exademy from "../assets/exademy.png";
+import drryn from "../assets/drryn.png";
+import aisutilities from "../assets/aisutilities.png";
+import lumani from "../assets/lumani.png";
+import tsamuelestate from "../assets/tsamuelestate.png";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import TsamuelCaseStudy from "./TsamuelCaseStudy.jsx";
+import Yogalife from "./Yogalife.jsx";
+import GubeLuxe from "./GubeLuxe.jsx";
+import Exademy from "./Exademy.jsx";
+import LumaniSystem from "./LumaniSystem.jsx";
+import AisUtilities from "./AisUtilities.jsx";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+
 
 /* ── data ── */
 const growthData = [
@@ -31,15 +54,106 @@ const impactData = [
 ];
 
 const caseStudies = [
-  { img: hero4, tag: "Real Estate",    tagColor: "bg-blue-100 text-blue-700",    stat: "+340%", label: "Lead Gen",   title: "Estate Agent Capturing",       desc: "AI automation drove qualified leads 24/7, reducing response time from hours to seconds." },
-  { img: hero1, tag: "Healthcare",     tagColor: "bg-teal-100 text-teal-700",    stat: "+250%", label: "Appointments", title: "Clinic Growth Campaign",      desc: "Smart booking system automated patient intake and slashed no-shows by 60%." },
-  { img: hero2, tag: "E-Commerce",     tagColor: "bg-purple-100 text-purple-700", stat: "+900%", label: "Revenue",    title: "AG UK Six",                    desc: "Personalised AI shopping engine transformed 40k SKU store into a conversion machine." },
-  { img: hero3, tag: "Manufacturing",  tagColor: "bg-orange-100 text-orange-700", stat: "+225%", label: "Efficiency",  title: "Industrial Automation Co.",    desc: "Workflow automation eliminated manual data entry across 12 production lines." },
-  { img: hero5, tag: "Hospitality",    tagColor: "bg-pink-100 text-pink-700",     stat: "8X",    label: "Bookings",    title: "Tofac Hotel",                  desc: "AI concierge and dynamic pricing doubled direct bookings and cut OTA dependency." },
-  { img: hero4, tag: "Education",      tagColor: "bg-green-100 text-green-700",   stat: "+300%", label: "Enrolments", title: "Online Learning Platform",      desc: "Personalised course funnels and chatbot support drove 3x enrolment growth." },
-  { img: hero1, tag: "Finance",        tagColor: "bg-yellow-100 text-yellow-700", stat: "+400%", label: "Conversions", title: "Financial Services Firm",      desc: "Lead qualification AI turned cold contacts into booked advisor calls automatically." },
-  { img: hero2, tag: "Hospitality",    tagColor: "bg-pink-100 text-pink-700",     stat: "+145%", label: "Revenue",    title: "Luxury Hotel Chain",           desc: "Multi-channel automation unified guest journeys across 6 properties." },
+  {
+    img: healing,
+    tag: "Healthcare",
+    tagColor: "bg-emerald-100 text-emerald-700",
+    stat: "+180%",
+    label: "Patient Leads",
+    title: "Amisha Healing Hub",
+    desc: "AI-powered appointment booking, wellness programs and patient management platform increased qualified enquiries and bookings.",
+    link: "/case-study/amisha-healing",
+  },
+
+  {
+    img: yogalife,
+    tag: "Education",
+    tagColor: "bg-violet-100 text-violet-700",
+    stat: "+120%",
+    label: "Organic Traffic",
+    title: "Yogalife Global",
+    desc: "Online yoga education platform with multilingual courses, memberships and digital learning experience.",
+    link: "/case-study/yogalife",
+  },
+
+  {
+    img: gebeluxe,
+    tag: "Hospitality",
+    tagColor: "bg-pink-100 text-pink-700",
+    stat: "+95%",
+    label: "Conversions",
+    title: "Gebe Luxe",
+    desc: "Luxury furniture and hospitality brand website delivering premium customer experiences and higher conversions.",
+    link: "/case-study/gubeluxe",
+  },
+
+  {
+    img: tsamuelestate,
+    tag: "Real Estate",
+    tagColor: "bg-blue-100 text-blue-700",
+    stat: "+140%",
+    label: "Qualified Leads",
+    title: "T Samuel Estate",
+    desc: "Luxury real estate website helping buyers discover premium properties through AI-powered lead generation.",
+    link: "/case-study/tsamuel-estate",
+  },
+
+  {
+    img: aisutilities,
+    tag: "Manufacturing",
+    tagColor: "bg-orange-100 text-orange-700",
+    stat: "+110%",
+    label: "Productivity",
+    title: "AIS Utilities",
+    desc: "Industrial workflow automation platform improving productivity and reducing manual operational tasks.",
+    link: "/case-study/ais-utilities",
+  },
+
+  {
+    img: lumani,
+    tag: "Real Estate",
+    tagColor: "bg-blue-100 text-blue-700",
+    stat: "+95%",
+    label: "Project Enquiries",
+    title: "Lumani Systems",
+    desc: "Architectural fenestration company website showcasing premium aluminium and glass solutions.",
+    link: "/case-study/lumani-systems",
+  },
+
+  {
+    img: exademy,
+    tag: "Education",
+    tagColor: "bg-green-100 text-green-700",
+    stat: "+150%",
+    label: "Student Enrolments",
+    title: "Exademy",
+    desc: "Modern coaching platform with online admissions, learning management and student engagement features.",
+    link: "/case-study/exademy",
+  },
+
+  {
+    img: drryn,
+    tag: "E-Commerce",
+    tagColor: "bg-purple-100 text-purple-700",
+    stat: "3.1x",
+    label: "Revenue Growth",
+    title: "DRRYN",
+    desc: "Fashion eCommerce platform with seamless shopping, payment integration and inventory management.",
+    link: "/case-study/drryn",
+  },
+
+  {
+    img: handicraft,
+    tag: "E-Commerce",
+    tagColor: "bg-amber-100 text-amber-700",
+    stat: "+170%",
+    label: "Online Sales",
+    title: "Rewari Handicrafts",
+    desc: "Traditional handicrafts marketplace helping artisans sell products globally through a premium online store.",
+    link: "/case-study/rewari-handicrafts",
+  },
 ];
+
 
 const industries = ["All", "Real Estate", "Healthcare", "E-Commerce", "Manufacturing", "Hospitality", "Education", "Finance"];
 
@@ -58,7 +172,124 @@ const testimonials = [
   { name: "Michael Roberts",  role: "CEO, AG UK",             quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.",             rating: 5 },
   { name: "Lua Pang",         role: "Owner, Luxury Hotels",   quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.",        rating: 5 },
 ];
+const featuredProjects = [
+  {
+    title: "T Samuel Estate",
+    image: tsamuelestate,
+    description:
+      "Luxury real estate platform with SEO and AI-powered lead generation.",
+    stats: [
+      { value: "340%", label: "Organic Traffic" },
+      { value: "120%", label: "Lead Growth" },
+      { value: "85%", label: "Lower CPL" },
+    ],
+    link: "/case-study/tsamuel-estate",
+  },
 
+  {
+    title: "Amisha Healing Hub",
+    image: healing,
+    description:
+      "Healthcare website with appointment booking and patient automation.",
+    stats: [
+      { value: "180%", label: "Patient Leads" },
+      { value: "95%", label: "Appointments" },
+      { value: "60%", label: "Retention" },
+    ],
+    link: "/case-study/amisha-healing",
+  },
+
+  {
+    title: "Yogalife Global",
+    image: yogalife,
+    description:
+      "Online yoga education platform with memberships and courses.",
+    stats: [
+      { value: "220%", label: "Organic Growth" },
+      { value: "140%", label: "Course Sales" },
+      { value: "65%", label: "Engagement" },
+    ],
+    link: "/case-study/yogalife",
+  },
+
+  {
+    title: "Gebe Luxe",
+    image: gebeluxe,
+    description:
+      "Luxury furniture brand delivering premium online experiences.",
+    stats: [
+      { value: "95%", label: "Conversions" },
+      { value: "140%", label: "Revenue" },
+      { value: "70%", label: "Leads" },
+    ],
+    link: "/case-study/gubeluxe",
+  },
+
+  {
+    title: "AIS Utilities",
+    image: aisutilities,
+    description:
+      "Industrial workflow automation platform improving operational efficiency.",
+    stats: [
+      { value: "110%", label: "Efficiency" },
+      { value: "55%", label: "Automation" },
+      { value: "80%", label: "Accuracy" },
+    ],
+    link: "/case-study/ais-utilities",
+  },
+
+  {
+    title: "Lumani Systems",
+    image: lumani,
+    description:
+      "Architectural systems company with premium digital presence.",
+    stats: [
+      { value: "95%", label: "Enquiries" },
+      { value: "130%", label: "Traffic" },
+      { value: "72%", label: "Conversions" },
+    ],
+    link: "/case-study/lumani-systems",
+  },
+
+  {
+    title: "Exademy",
+    image: exademy,
+    description:
+      "Education platform with admissions and learning management.",
+    stats: [
+      { value: "150%", label: "Enrollments" },
+      { value: "220%", label: "Traffic" },
+      { value: "90%", label: "Leads" },
+    ],
+    link: "/case-study/exademy",
+  },
+
+  {
+    title: "DRRYN",
+    image: drryn,
+    description:
+      "Premium fashion eCommerce website with seamless shopping experience.",
+    stats: [
+      { value: "3.1x", label: "Revenue" },
+      { value: "175%", label: "Sales" },
+      { value: "68%", label: "Returning Users" },
+    ],
+    link: "/case-study/drryn",
+  },
+
+  {
+    title: "Rewari Handicrafts",
+    image: handicraft,
+    description:
+      "Traditional handicraft store selling products globally.",
+    stats: [
+      { value: "170%", label: "Online Sales" },
+      { value: "240%", label: "Traffic" },
+      { value: "90%", label: "Orders" },
+    ],
+    link: "/case-study/rewari-handicrafts",
+  },
+];
 /* ── animated counter hook ── */
 function useCounter(target, duration = 1800, start = false) {
   const [val, setVal] = useState(0);
@@ -175,45 +406,106 @@ const HeroStats = () => {
 const FeaturedCase = () => {
   const [ref, visible] = useReveal();
   return (
-    <section ref={ref} className="bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className={`bg-gray-900 rounded-2xl overflow-hidden transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="grid lg:grid-cols-[1fr_340px]">
-            <div className="p-8 lg:p-12">
-              <span className="inline-block text-[10px] font-bold tracking-widest text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 px-3 py-1.5 rounded-full mb-4">
-                Featured Case Study
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-black text-white leading-tight mb-4">
-                Tsamuel Estate Agents
-              </h2>
-              <p className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg">
-                A complete top-of-funnel SEO strategy that drove organic traffic and increased
-                qualified leads by over 340%, transforming their digital presence in under 6 months.
-              </p>
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                {[
-                  { v: "340%", l: "Organic Traffic Growth" },
-                  { v: "120%", l: "Lead Form Submissions" },
-                  { v: "85%",  l: "Cost Per Lead Reduction" },
-                ].map((s) => (
-                  <div key={s.l} className="border border-white/10 rounded-xl p-4">
-                    <p className="text-3xl font-black text-blue-400 mb-1">{s.v}</p>
-                    <p className="text-xs text-gray-400 leading-snug">{s.l}</p>
-                  </div>
-                ))}
+    <section ref={ref} className="bg-gray-50 py-14">
+
+  <div className="max-w-7xl mx-auto px-6">
+
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      navigation
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 3500,
+        disableOnInteraction: false,
+      }}
+      loop
+      spaceBetween={20}
+      slidesPerView={1}
+    >
+
+      {featuredProjects.map((project) => (
+
+        <SwiperSlide key={project.title}>
+
+          <div className="bg-gray-900 rounded-[32px] overflow-hidden">
+
+            <div className="grid lg:grid-cols-[1fr_380px]">
+
+              {/* LEFT */}
+
+              <div className="p-10 lg:p-14">
+
+                <span className="inline-flex rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
+                  Featured Case Study
+                </span>
+
+                <h2 className="mt-6 text-5xl font-black text-white">
+                  {project.title}
+                </h2>
+
+                <p className="mt-6 max-w-xl text-slate-300 leading-8">
+                  {project.description}
+                </p>
+
+                <div className="grid grid-cols-3 gap-5 mt-10">
+
+                  {project.stats.map((stat) => (
+
+                    <div
+                      key={stat.label}
+                      className="rounded-2xl border border-white/10 p-5"
+                    >
+                      <h3 className="text-4xl font-black text-blue-400">
+                        {stat.value}
+                      </h3>
+
+                      <p className="mt-2 text-xs text-slate-400">
+                        {stat.label}
+                      </p>
+
+                    </div>
+
+                  ))}
+
+                </div>
+
+                <Link
+                  to={project.link}
+                  className="inline-flex items-center gap-3 mt-10 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white hover:bg-blue-500"
+                >
+                  View Full Case Study
+                  <HiArrowRight className="w-5 h-5" />
+                </Link>
+
               </div>
-              <button className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-600/30">
-                View Full Case Study <HiArrowRight className="w-4 h-4" />
-              </button>
+
+              {/* RIGHT */}
+
+              <div className="relative hidden lg:block">
+
+                <img
+                  src={project.image}
+                  className="h-full w-full object-cover"
+                  alt={project.title}
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gray-900" />
+
+              </div>
+
             </div>
-            <div className="relative hidden lg:block">
-              <img src={hero4} alt="Featured" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-linear-to-l from-transparent to-gray-900/60" />
-            </div>
+
           </div>
-        </div>
-      </div>
-    </section>
+
+        </SwiperSlide>
+
+      ))}
+
+    </Swiper>
+
+  </div>
+
+</section>
   );
 };
 
@@ -255,7 +547,7 @@ const CaseGrid = () => {
           ))}
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((c, i) => (
             <div
               key={c.title}
@@ -276,9 +568,16 @@ const CaseGrid = () => {
               <div className="p-4">
                 <h3 className="text-sm font-bold text-gray-900 leading-snug mb-1.5">{c.title}</h3>
                 <p className="text-gray-500 text-xs leading-relaxed mb-3">{c.desc}</p>
-                <button className="flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all">
+                {/* <button className="flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all">
                   View Case Study <HiArrowRight className="w-3.5 h-3.5" />
-                </button>
+                </button> */}
+                <Link
+  to={c.link}
+  className="inline-flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all"
+>
+  View Case Study
+  <HiArrowRight className="w-3.5 h-3.5" />
+</Link>
               </div>
             </div>
           ))}
@@ -359,64 +658,151 @@ const ImpactSection = () => {
 /* ── Industry filter section ── */
 const IndustrySection = () => {
   const [ref, visible] = useReveal();
-  const [active, setActive] = useState("Real Estate");
-  const industryCards = [
-    { label: "Real Estate",    img: hero4, cases: "15 Case Studies" },
-    { label: "Healthcare",     img: hero1, cases: "11 Case Studies" },
-    { label: "Manufacturing",  img: hero3, cases: "9 Case Studies"  },
-    { label: "Utilities",      img: hero2, cases: "7 Case Studies"  },
-    { label: "Education",      img: hero5, cases: "8 Case Studies"  },
-    { label: "E-Commerce",     img: hero2, cases: "14 Case Studies" },
-  ];
+  const [active, setActive] = useState("All");
 
+  const industryCards = [
+  {
+    label: "All",
+    img: tsamuelestate,
+    count: "9 Projects",
+  },
+  {
+    label: "Real Estate",
+    img: tsamuelestate,
+    count: "2 Projects",
+  },
+  {
+    label: "Healthcare",
+    img: healing,
+    count: "1 Project",
+  },
+  {
+    label: "Education",
+    img: exademy,
+    count: "2 Projects",
+  },
+  {
+    label: "Manufacturing",
+    img: aisutilities,
+    count: "1 Project",
+  },
+  {
+    label: "Hospitality",
+    img: gebeluxe,
+    count: "1 Project",
+  },
+  {
+    label: "E-Commerce",
+    img: handicraft,
+    count: "2 Projects",
+  },
+];
   return (
-    <section ref={ref} className="bg-gray-50 py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-5 lg:px-8">
-        <div className={`text-center mb-10 transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-3">
+    <section ref={ref} className="py-24 bg-white">
+
+      <div className="max-w-7xl mx-auto px-6">
+
+        {/* Heading */}
+
+        <div
+          className={`text-center mb-12 transition-all duration-700 ${
+            visible
+              ? "opacity-100 translate-y-0"
+              : "opacity-0 translate-y-8"
+          }`}
+        >
+          <span className="inline-flex px-5 py-2 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.25em] uppercase">
             By Industry
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black text-gray-900">Explore Case Studies By Industry</h2>
+
+          <h2 className="mt-5 text-5xl font-bold text-gray-900">
+            Explore Case Studies
+          </h2>
+
+          <p className="mt-4 text-gray-500 text-lg">
+            Discover projects across multiple industries.
+          </p>
         </div>
 
-        {/* tabs */}
-        <div className={`flex gap-2 overflow-x-auto pb-2 mb-8 transition-all duration-700 delay-100 ${visible ? "opacity-100" : "opacity-0"}`}>
-          {industryCards.map((ic) => (
+        {/* Tabs */}
+
+        <div className="flex justify-center flex-wrap gap-3 mb-12">
+
+          {industryCards.map((item) => (
+
             <button
-              key={ic.label}
-              onClick={() => setActive(ic.label)}
-              className={`shrink-0 px-4 py-2 rounded-xl text-xs font-semibold border transition-all ${
-                active === ic.label
-                  ? "bg-blue-900 text-white border-blue-900"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-blue-300"
+              key={item.label}
+              onClick={() => setActive(item.label)}
+              className={`px-6 py-3 rounded-full border transition-all duration-300 text-sm font-semibold
+
+              ${
+                active === item.label
+                  ? "bg-[#0B0F9C] text-white border-[#0B0F9C]"
+                  : "bg-white border-gray-200 hover:border-[#0B0F9C] hover:text-[#0B0F9C]"
               }`}
             >
-              {ic.label}
+              {item.label}
             </button>
+
           ))}
+
         </div>
 
-        {/* cards row */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {industryCards.map((ic, i) => (
-            <div
-              key={ic.label}
-              onClick={() => setActive(ic.label)}
-              className={`relative rounded-2xl overflow-hidden cursor-pointer group transition-all duration-300 ${active === ic.label ? "ring-2 ring-blue-600 shadow-xl" : "hover:shadow-lg"}`}
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: `opacity .6s ${i * 80}ms, transform .6s ${i * 80}ms` }}
-            >
-              <div className="h-32">
-                <img src={ic.img} alt={ic.label} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-linear-to-t from-black/80 to-black/10" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-3">
-                <p className="text-white text-xs font-bold leading-tight">{ic.label}</p>
-                <p className="text-white/60 text-[9px] mt-0.5">{ic.cases}</p>
-              </div>
-            </div>
-          ))}
+        {/* Cards */}
+
+        {/* Industry Cards */}
+<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+
+  {industryCards
+    .filter((item) => {
+      if (item.label === "All") return false;
+      return active === "All" || active === item.label;
+    })
+    .map((item, index) => (
+
+      <div
+        key={item.label}
+        onClick={() => setActive(item.label)}
+        className={`group cursor-pointer rounded-3xl overflow-hidden border bg-white shadow-sm transition-all duration-300
+        ${
+          active === item.label
+            ? "border-[#0B0F9C] shadow-xl"
+            : "border-slate-200 hover:-translate-y-1 hover:shadow-lg"
+        }`}
+      >
+        <div className="relative h-40">
+
+          <img
+            src={item.img}
+            alt={item.label}
+            className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+          <div className="absolute bottom-4 left-4">
+
+            <h3 className="text-white text-base font-bold">
+              {item.label}
+            </h3>
+
+            <p className="text-white/80 text-xs mt-1">
+              {item.count}
+            </p>
+
+          </div>
+
         </div>
+
       </div>
+
+    ))}
+
+
+        </div>
+
+      </div>
+
     </section>
   );
 };
