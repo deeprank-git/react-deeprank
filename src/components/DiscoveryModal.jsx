@@ -29,11 +29,6 @@ const TIME_SLOTS = [
   "04:00 PM", "05:00 PM", "06:00 PM",
 ];
 
-const BUDGETS = [
-  "< $1,000", "$1,000 – $5,000", "$5,000 – $10,000",
-  "$10,000 – $25,000", "$25,000+", "Not Sure Yet",
-];
-
 const HOW_HEARD = [
   "Google Search", "Social Media", "Referral", "LinkedIn",
   "Blog / Article", "Event / Conference", "Other",
@@ -61,7 +56,7 @@ function fmtDate(d) {
 
 const BLANK = {
   service: "", fullName: "", businessName: "", email: "",
-  phone: "", website: "", budget: "", description: "",
+  phone: "", website: "", description: "",
   date: null, time: "", howHeard: "", newsletter: false,
 };
 
@@ -119,7 +114,6 @@ const DiscoveryModal = () => {
       phone:         form.phone || "N/A",
       website:       form.website || "N/A",
       service:       form.service,
-      budget:        form.budget || "Not specified",
       description:   form.description || "N/A",
       date:          fmtDate(form.date),
       time:          form.time,
@@ -293,7 +287,7 @@ const DiscoveryModal = () => {
                 </div>
 
                 {/* Website */}
-                <div>
+                <div className="sm:col-span-2">
                   <label className="block text-[11px] font-bold text-gray-500 mb-1.5">Website URL</label>
                   <input
                     type="text"
@@ -302,19 +296,6 @@ const DiscoveryModal = () => {
                     placeholder="https://yourwebsite.com"
                     className="w-full border-2 border-gray-100 hover:border-gray-200 rounded-xl px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 placeholder-gray-300 bg-white"
                   />
-                </div>
-
-                {/* Budget */}
-                <div>
-                  <label className="block text-[11px] font-bold text-gray-500 mb-1.5">Monthly Budget</label>
-                  <select
-                    value={form.budget}
-                    onChange={(e) => set("budget", e.target.value)}
-                    className="w-full border-2 border-gray-100 hover:border-gray-200 rounded-xl px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-blue-400/30 focus:border-blue-400 bg-white text-gray-700"
-                  >
-                    <option value="">Select your budget</option>
-                    {BUDGETS.map((b) => <option key={b} value={b}>{b}</option>)}
-                  </select>
                 </div>
 
                 {/* Description — full width */}
@@ -523,7 +504,7 @@ const DiscoveryModal = () => {
 
         {/* ── right: sticky sidebar ─────────────────────────── */}
         <aside className="hidden lg:flex w-72 xl:w-80 flex-col overflow-y-auto border-l border-white/40"
-          style={{ background: "rgba(248,250,255,0.85)", backdropFilter: "blur(12px)" }}>
+          style={{ background: "rgba(232,236,239,0.92)", backdropFilter: "blur(12px)" }}>
           <div className="p-6 flex flex-col gap-6">
 
             {/* booking summary */}

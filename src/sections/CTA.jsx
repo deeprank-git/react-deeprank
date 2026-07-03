@@ -5,7 +5,7 @@ const CTA = () => {
   const { open } = useModal();
 
   return (
-    <section className="py-20 mx-7 mb-5 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #e8eeff 0%, #f0f4ff 50%, #e8eeff 100%)" }}>
+    <section className="py-20 mx-7 mb-5 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #c4d8e5 0%, #e8ecef 50%, #c4d8e5 100%)" }}>
 
       <div className="relative max-w-3xl mx-auto px-5 text-center">
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight mb-5">

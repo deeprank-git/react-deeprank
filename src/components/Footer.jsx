@@ -24,7 +24,7 @@ const socials = [
 ];
 
 const Footer = () => (
-  <footer style={{ backgroundColor: "#03045e" }} className="text-white relative overflow-hidden">
+  <footer style={{ backgroundColor: "#1c2b48" }} className="text-white relative overflow-hidden">
 
     {/* Background watermark */}
     <div className="absolute top-0 inset-x-0 flex items-center justify-center pointer-events-none select-none overflow-hidden h-36">

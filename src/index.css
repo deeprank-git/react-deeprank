@@ -1,6 +1,164 @@
 @import "tailwindcss";
 
-/* Modal entrance */
+/* ═══════════════════════════════════════════════════════════════
+   THEME — Remap Tailwind color tokens
+   Palette:
+     Midnight Blue:   #1C2B48  → primary / dark UI
+     Cool Cerulean:   #8EB1D1  → accent / links
+     Baby Blue Eyes:  #A7C7E7  → borders / subtle highlights
+     Platinum:        #E8ECEF  → section backgrounds
+     Light Blue Grey: #C4D8E5  → card / secondary backgrounds
+═══════════════════════════════════════════════════════════════ */
+@theme {
+  --color-blue-50:    #edf4f9;
+  --color-blue-100:   #c4d8e5;
+  --color-blue-200:   #a7c7e7;
+  --color-blue-300:   #8eb1d1;
+  --color-blue-400:   #7aa3c8;
+  --color-blue-500:   #6695bf;
+  --color-blue-600:   #8eb1d1;
+  --color-blue-700:   #2e4470;
+  --color-blue-800:   #253758;
+  --color-blue-900:   #1c2b48;
+
+  --color-indigo-50:  #edf4f9;
+  --color-indigo-100: #c4d8e5;
+  --color-indigo-700: #2e4470;
+  --color-indigo-800: #253758;
+  --color-indigo-900: #1c2b48;
+
+  --color-slate-700:  #2e4470;
+  --color-slate-800:  #253758;
+  --color-slate-900:  #1c2b48;
+
+  --color-gray-50:    #f0f4f8;
+  --color-gray-100:   #e8ecef;
+  --color-gray-200:   #d5e2ec;
+  --color-gray-300:   #b8cedf;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════════════════════ */
+@layer base {
+  body {
+    background-color: #e8ecef;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM FOUNDATIONS
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-soft:     0 1px 2px rgba(28,43,72,0.04), 0 10px 26px -8px rgba(28,43,72,0.12);
+  --shadow-elevated: 0 2px 4px rgba(28,43,72,0.05), 0 24px 48px -12px rgba(28,43,72,0.18);
+  --shadow-glow:     0 0 0 1px rgba(142,177,209,0.16), 0 10px 34px -6px rgba(142,177,209,0.38);
+}
+
+/* Subtle ambient depth instead of flat color */
+body {
+  background-image:
+    radial-gradient(circle at 12% 0%, rgba(167,199,231,0.22), transparent 42%),
+    radial-gradient(circle at 100% 18%, rgba(196,216,229,0.30), transparent 48%);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Whisper-quiet grain texture for a less "flat" surface */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Refined text selection & focus rings */
+::selection {
+  background: rgba(142, 177, 209, 0.35);
+  color: #1c2b48;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #8eb1d1;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION BACKGROUNDS
+   Sections using bg-white become Platinum; cards (divs) stay white
+═══════════════════════════════════════════════════════════════ */
+section.bg-white {
+  background-color: #e8ecef;
+  background-image:
+    radial-gradient(circle at 8% -8%, rgba(167,199,231,0.20), transparent 38%),
+    radial-gradient(circle at 102% 108%, rgba(196,216,229,0.28), transparent 42%);
+}
+
+/* CaseStudies uses bg-gray-50 → already remapped via @theme, add matching ambient glow */
+section.bg-gray-50 {
+  background-image:
+    radial-gradient(circle at 92% -10%, rgba(142,177,209,0.16), transparent 40%),
+    radial-gradient(circle at -5% 105%, rgba(167,199,231,0.16), transparent 40%);
+}
+
+/* Stats bar inside Industries */
+section.bg-\[#08104A\] {
+  background-color: #1c2b48 !important;
+}
+
+/* Dashboard outer container */
+.bg-\[#F8FAFC\] {
+  background-color: #e8ecef !important;
+}
+
+/* Navbar — refined glass effect */
+header.bg-white\/95,
+header.bg-white {
+  background-color: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(167, 199, 231, 0.45),
+              0 12px 32px -16px rgba(28, 43, 72, 0.18);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HARDCODED HEX OVERRIDES
+   These classes use arbitrary Tailwind values that @theme can't touch
+═══════════════════════════════════════════════════════════════ */
+
+/* #08104A (deep navy) → Midnight Blue */
+.text-\[#08104A\]            { color: #1c2b48 !important; }
+.bg-\[#08104A\]              { background-color: #1c2b48 !important; }
+.border-\[#08104A\]          { border-color: #1c2b48 !important; }
+.hover\:bg-\[#08104A\]:hover { background-color: #253758 !important; }
+.hover\:text-\[#08104A\]:hover { color: #1c2b48 !important; }
+
+/* group-hover variants for Process steps */
+.group:hover .group-hover\:border-\[#08104A\] { border-color: #1c2b48 !important; }
+.group:hover .group-hover\:bg-\[#08104A\]     { background-color: #1c2b48 !important; }
+.group:hover .group-hover\:text-white         { color: #ffffff !important; }
+.group:hover .group-hover\:text-blue-200      { color: #a7c7e7 !important; }
+
+/* #0B0F9C (indigo navy on AI/SEO pages) → Midnight Blue */
+.text-\[#0B0F9C\]            { color: #1c2b48 !important; }
+.bg-\[#0B0F9C\]              { background-color: #1c2b48 !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMATION KEYFRAMES
+═══════════════════════════════════════════════════════════════ */
+
+/* --- Existing (kept) --- */
 @keyframes modal-in {
   from { opacity: 0; transform: scale(0.96) translateY(12px); }
   to   { opacity: 1; transform: scale(1)    translateY(0); }
@@ -13,7 +171,6 @@
 }
 .animate-fade-in { animation: fade-in 0.25s ease forwards; }
 
-/* Mega menu fade-in */
 @keyframes menu-in {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -22,7 +179,214 @@
   animation: menu-in 0.18s ease forwards;
 }
 
-/* Swiper pagination dots */
+/* --- New: reveal animations --- */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(36px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-right {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* --- New: ambient / loop animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes soft-glow {
+  0%, 100% { box-shadow: 0 4px 24px 0 rgba(28, 43, 72, 0.12); }
+  50%       { box-shadow: 0 8px 40px 0 rgba(142, 177, 209, 0.30); }
+}
+
+@keyframes border-breathe {
+  0%, 100% { border-color: #a7c7e7; }
+  50%       { border-color: #8eb1d1; }
+}
+
+@keyframes shimmer-slide {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* --- Marquee (kept) --- */
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SCROLL-DRIVEN ANIMATIONS (CSS-only, modern browsers)
+   Sections and their key children animate as they enter the viewport
+═══════════════════════════════════════════════════════════════ */
+@supports (animation-timeline: view()) {
+  /* Each section slides up as it scrolls into view */
+  section {
+    animation: reveal-up 0.65s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 28%;
+  }
+
+  /* Section headings lead the reveal */
+  section h2 {
+    animation: reveal-up 0.5s ease both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 22%;
+  }
+
+  /* Grid cards stagger in */
+  section .grid > *:nth-child(1) {
+    animation: reveal-up 0.5s 0ms   ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+  section .grid > *:nth-child(2) {
+    animation: reveal-up 0.5s 80ms  ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+  section .grid > *:nth-child(3) {
+    animation: reveal-up 0.5s 160ms ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+  section .grid > *:nth-child(4) {
+    animation: reveal-up 0.5s 240ms ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+  section .grid > *:nth-child(5) {
+    animation: reveal-up 0.5s 320ms ease both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM SURFACES — refined hairline borders & ambient elevation
+   (base state only; hover-state shadows are upgraded further below)
+═══════════════════════════════════════════════════════════════ */
+.border-gray-100 {
+  border-color: rgba(167, 199, 231, 0.35);
+}
+
+.overflow-hidden.shadow-sm {
+  box-shadow: var(--shadow-soft);
+}
+
+.rounded-full.border-2.border-gray-200 {
+  box-shadow: 0 4px 14px -4px rgba(28, 43, 72, 0.10);
+}
+
+/* Big numbers / headings get a faint lift off the page */
+.text-5xl.font-black,
+.text-4xl.font-black {
+  text-shadow: 0 2px 14px rgba(28, 43, 72, 0.07);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ENHANCED HOVER & TRANSITION
+═══════════════════════════════════════════════════════════════ */
+
+/* Global smooth transitions */
+a, button {
+  transition:
+    color 0.22s ease,
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+/* Card hover — richer, layered shadow with palette color */
+.hover\:shadow-xl:hover {
+  box-shadow: 0 2px 6px rgba(28, 43, 72, 0.06),
+              0 20px 50px -10px rgba(28, 43, 72, 0.20),
+              0 6px 20px -4px rgba(142, 177, 209, 0.22) !important;
+}
+
+/* Primary buttons — gradient fill + shine sweep on hover */
+button.bg-blue-900,
+a.bg-blue-900 {
+  background-image: linear-gradient(135deg, #1c2b48 0%, #2e4470 100%);
+  position: relative;
+  overflow: hidden;
+}
+button.bg-blue-900::before,
+a.bg-blue-900::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.65s var(--ease-premium);
+  pointer-events: none;
+}
+button.bg-blue-900:hover::before,
+a.bg-blue-900:hover::before {
+  left: 125%;
+}
+
+/* Primary buttons: glow on hover */
+button.bg-blue-900:hover,
+a.bg-blue-900:hover {
+  animation: soft-glow 1.8s ease-in-out infinite;
+  box-shadow: var(--shadow-glow);
+}
+
+/* Industry / case study cards — deeper lift */
+.group:hover img {
+  filter: brightness(1.04) saturate(1.08);
+}
+
+/* Process step circles breathe when hovered */
+.group:hover .rounded-full.border-2 {
+  animation: border-breathe 1.4s ease-in-out infinite;
+}
+
+/* Floating stat card in Hero */
+.shadow-2xl.absolute.bottom-0 {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* AI Automation floating card */
+.shadow-2xl.rounded-2xl.absolute {
+  animation: float 4.5s ease-in-out 0.5s infinite;
+}
+
+/* "Trusted by" badge pill shimmer */
+.tracking-widest.text-blue-600 {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Accent tag pills get a refined gradient fill + breathing border */
+.rounded-full.bg-blue-50,
+.rounded-full.bg-blue-100 {
+  background-image: linear-gradient(135deg, rgba(196,216,229,0.65), rgba(167,199,231,0.35));
+  border: 1px solid rgba(167,199,231,0.45);
+  animation: border-breathe 3s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SWIPER pagination dots
+═══════════════════════════════════════════════════════════════ */
 .hero-swiper .swiper-pagination-bullet {
   background: white;
   opacity: 0.5;
@@ -35,7 +399,9 @@
   border-radius: 3px;
 }
 
-/* Hide scrollbar globally */
+/* ═══════════════════════════════════════════════════════════════
+   SCROLLBAR — hide globally
+═══════════════════════════════════════════════════════════════ */
 * {
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -44,6 +410,9 @@
   display: none;
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   MARQUEE
+═══════════════════════════════════════════════════════════════ */
 .marquee-wrapper {
   overflow: hidden;
 }
@@ -60,12 +429,98 @@
   flex-shrink: 0;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
+/* ═══════════════════════════════════════════════════════════════
+   MEGA MENU refinements
+   Mega menus should use the platinum palette
+═══════════════════════════════════════════════════════════════ */
+.mega-menu-animate {
+  box-shadow: var(--shadow-elevated), 0 0 0 1px rgba(196,216,229,0.5);
+  border-color: rgba(196, 216, 229, 0.6) !important;
+}
 
-  100% {
-    transform: translateX(-50%);
-  }
+.mega-menu-animate > .grid,
+.mega-menu-animate > div {
+  background-color: #f5f8fb;
+}
+
+/* Right sidebar panel in mega menus */
+.mega-menu-animate .bg-gray-50,
+.mega-menu-animate .bg-gray-50\/80 {
+  background-color: #edf4f9 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MODAL (DiscoveryModal) — tinted glass panels
+═══════════════════════════════════════════════════════════════ */
+.modal-enter aside {
+  background: rgba(237, 244, 249, 0.90) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO section: page-load fade
+   The hero is first in the DOM; give it an immediate entrance
+═══════════════════════════════════════════════════════════════ */
+section.bg-white.overflow-hidden,
+section.bg-white:first-of-type {
+  animation: reveal-up 0.8s ease both;
+  animation-delay: 0ms;
+}
+
+/* Trusted company marquee strip */
+.border-y.border-gray-100 {
+  border-color: #c4d8e5 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM EASING — swap Tailwind's default curve for a refined one
+   (only the timing-function changes; duration/property untouched)
+═══════════════════════════════════════════════════════════════ */
+.transition-all,
+.transition-colors,
+.transition-transform,
+.transition-shadow,
+.transition-opacity {
+  transition-timing-function: var(--ease-premium);
+}
+
+.duration-300,
+.duration-500 {
+  transition-timing-function: var(--ease-premium);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER — ambient glow overlay (layered on top of inline navy bg)
+═══════════════════════════════════════════════════════════════ */
+footer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(142,177,209,0.20), transparent 50%),
+    radial-gradient(circle at 85% 100%, rgba(167,199,231,0.14), transparent 50%);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CTA SECTION — ambient glow blob behind the gradient background
+═══════════════════════════════════════════════════════════════ */
+section[style*="linear-gradient(135deg, #c4d8e5"] {
+  position: relative;
+}
+section[style*="linear-gradient(135deg, #c4d8e5"]::before {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  width: 460px;
+  height: 460px;
+  top: -220px;
+  right: -120px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(142,177,209,0.32), transparent 70%);
+}
+section[style*="linear-gradient(135deg, #c4d8e5"] > div {
+  position: relative;
+  z-index: 1;
 }
