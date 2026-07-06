@@ -1,7 +1,7 @@
 import { HiArrowRight } from "react-icons/hi";
 import HealthCare from "../assets/HealthCare.png";
 import Ecommerce from "../assets/Ecommerce.png";
-import Manufacture from "../assets/Manufacturing.png";
+import manufacturing2 from "../assets/manufacturing2.png";
 import RealEstate from "../assets/RealEstate.png";
 import Utilities from "../assets/Utilities.png";
 
@@ -9,7 +9,7 @@ import Utilities from "../assets/Utilities.png";
 const industries = [
   { name: "Real Estate", img: RealEstate, desc: "AI-powered listings, lead gen & virtual tours" },
   { name: "Healthcare", img: HealthCare, desc: "Patient management & automation solutions" },
-  { name: "Manufacturing", img: Manufacture, desc: "Process automation & supply chain AI" },
+  { name: "Manufacturing", img: manufacturing2, desc: "Process automation & supply chain AI" },
   { name: "Utilities", img: Utilities, desc: "Smart grid monitoring & efficiency systems" },
   { name: "E-commerce", img: Ecommerce, desc: "Personalisation, CRM & conversion tools" },
 ];
@@ -28,7 +28,7 @@ const Industries = () => (
 
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-3">
+            <span className="inline-block text-base  font-bold tracking-widest text-[#08104A] uppercase px-3 py-1.5">
               Industry We Transform
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight">
@@ -44,7 +44,7 @@ const Industries = () => (
           {industries.map((ind) => (
             <div
               key={ind.name}
-              className="relative rounded-2xl overflow-hidden h-52 sm:h-60 lg:h-72 cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300"
+              className="relative rounded-2xl overflow-hidden aspect-square cursor-pointer group shadow-sm hover:shadow-xl transition-all duration-300"
             >
               <img
                 src={ind.img}

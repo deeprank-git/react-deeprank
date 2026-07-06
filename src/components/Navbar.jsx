@@ -95,7 +95,7 @@ const serviceCards = [
   },
   {
     name: "Digital Marketing",
-   route: "/digital-marketing",
+    route: "/digital-marketing",
     gradient: "from-blue-700 via-blue-600 to-sky-700",
     visual: (
       <div className="flex flex-col gap-1 items-center justify-center h-full">
@@ -260,7 +260,7 @@ const ProductMegaMenu = () => (
     <div className="grid grid-cols-[200px_1fr_220px]">
       {/* Left — product list */}
       <div className="p-4 border-r border-gray-100">
-        <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase px-2 mb-3">
+        <p className="text-[14px] font-bold tracking-widest text-gray-400 uppercase px-2 mb-3">
           Our Products
         </p>
         {products.map((p) => (
@@ -269,22 +269,22 @@ const ProductMegaMenu = () => (
             className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50/60 cursor-pointer group transition-colors"
           >
             <div
-              className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center font-bold text-sm ${p.iconBg} ${p.iconColor}`}
+              className={`w-8 h-8 shrink-0 rounded-lg flex items-center justify-center font-bold text-base ${p.iconBg} ${p.iconColor}`}
             >
               {p.icon}
             </div>
             <div>
-              <p className="font-semibold text-gray-900 text-sm leading-tight">
+              <p className="font-semibold text-gray-900 text-base leading-tight">
                 {p.name}
               </p>
-              <p className="text-[11px] text-gray-400 leading-snug mt-0.5">
+              <p className="text-[15px] text-gray-400 leading-snug mt-0.5">
                 {p.desc}
               </p>
             </div>
           </div>
         ))}
         <div className="mt-3 pt-3 border-t border-gray-100">
-          <button className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 py-2 rounded-xl transition-colors">
+          <button className="w-full flex items-center justify-center gap-1.5 text-base font-semibold text-blue-600 hover:text-blue-800 bg-blue-50 hover:bg-blue-100 py-2 rounded-xl transition-colors">
             View All Products <HiArrowRight className="w-3 h-3" />
           </button>
         </div>
@@ -292,30 +292,30 @@ const ProductMegaMenu = () => (
 
       {/* Middle — product overview */}
       <div className="p-5">
-        <p className="text-[10px] font-bold tracking-widest text-blue-600 uppercase mb-2">
+        <p className="text-[14px] font-bold tracking-widest text-blue-600 uppercase mb-2">
           Product Overview
         </p>
-        <h3 className="text-lg font-bold text-gray-900 leading-snug mb-2">
+        <h3 className="text-xl font-bold text-gray-900 leading-snug mb-2">
           Powerful Products.
           <br />
           Built for Businesses.
         </h3>
-        <p className="text-xs text-gray-500 leading-relaxed mb-4">
+        <p className="text-base text-gray-500 leading-relaxed mb-4">
           Discover our suite of products designed to automate, manage, and grow
           your business.
         </p>
         {/* Mini dashboard */}
         <div className="rounded-xl border border-gray-200 bg-gray-50 overflow-hidden">
-          <div className="bg-gradient-to-r from-blue-900 to-indigo-900 text-white px-3 py-1.5 flex items-center justify-between">
+          <div className="bg-linear-to-r from-blue-900 to-indigo-900 text-white px-3 py-1.5 flex items-center justify-between">
             <div className="flex items-center gap-1">
               <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
               <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
               <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
             </div>
-            <span className="text-[9px] font-medium opacity-80">
+            <span className="text-[11px] font-medium opacity-80">
               DeepRank Dashboard
             </span>
-            <span className="text-[9px] opacity-50">Overview</span>
+            <span className="text-[11px] opacity-50">Overview</span>
           </div>
           <div className="p-2.5 grid grid-cols-4 gap-1.5">
             {[
@@ -325,9 +325,9 @@ const ProductMegaMenu = () => (
               { l: "Conv.", v: "34.6%", c: "+12.7%" },
             ].map((s) => (
               <div key={s.l} className="bg-white rounded-lg p-1.5 shadow-sm">
-                <p className="text-[8px] text-gray-400">{s.l}</p>
-                <p className="text-[10px] font-bold text-gray-800">{s.v}</p>
-                <p className="text-[8px] text-green-500 font-medium">{s.c}</p>
+                <p className="text-[11px] text-gray-400">{s.l}</p>
+                <p className="text-[11px] font-bold text-gray-800">{s.v}</p>
+                <p className="text-[11px] text-green-500 font-medium">{s.c}</p>
               </div>
             ))}
           </div>
@@ -347,10 +347,10 @@ const ProductMegaMenu = () => (
 
       {/* Right — why choose */}
       <div className="p-5 bg-gray-50/80 border-l border-gray-100">
-        <p className="text-[10px] font-bold tracking-widest text-blue-600 uppercase mb-2">
+        <p className="text-[13px] font-bold tracking-widest text-blue-600 uppercase mb-2">
           Why Choose Us?
         </p>
-        <h3 className="text-sm font-bold text-gray-900 leading-snug mb-4">
+        <h3 className="text-base font-bold text-gray-900 leading-snug mb-4">
           All-in-One Solutions to Scale
         </h3>
         <div className="flex flex-col gap-3 mb-4">
@@ -360,10 +360,10 @@ const ProductMegaMenu = () => (
                 {item.icon}
               </div>
               <div>
-                <p className="text-xs font-semibold text-gray-900">
+                <p className="text-base font-semibold text-gray-900">
                   {item.title}
                 </p>
-                <p className="text-[11px] text-gray-400 leading-snug">
+                <p className="text-[15px] text-gray-400 leading-snug">
                   {item.desc}
                 </p>
               </div>
@@ -371,11 +371,11 @@ const ProductMegaMenu = () => (
           ))}
         </div>
         <div className="bg-blue-900 rounded-xl p-3 text-white">
-          <p className="font-bold text-xs mb-1">Need Help Choosing?</p>
-          <p className="text-[11px] text-blue-300 mb-2.5">
+          <p className="font-bold text-base mb-1">Need Help Choosing?</p>
+          <p className="text-[15px] text-blue-300 mb-2.5">
             Our experts are here to help you find the right product.
           </p>
-          <button className="w-full bg-white text-blue-900 text-[11px] font-semibold py-1.5 rounded-lg flex items-center justify-center gap-1 hover:bg-blue-50 transition">
+          <button className="w-full bg-white text-blue-900 text-[15px] font-semibold py-1.5 rounded-lg flex items-center justify-center gap-1 hover:bg-blue-50 transition">
             Book a Free Call <HiArrowRight className="w-3 h-3" />
           </button>
         </div>
@@ -390,7 +390,7 @@ const ServiceMegaMenu = ({ onClose }) => (
     {/* Service cards + featured */}
     <div className="grid grid-cols-[1fr_220px]">
       <div className="p-5">
-        <p className="text-[10px] font-bold tracking-widest text-gray-400 uppercase mb-3">
+        <p className="text-[15px] font-bold tracking-widest text-gray-400 uppercase mb-3">
           Our Services
         </p>
         <div className="grid grid-cols-4 gap-2.5 mb-2.5">
@@ -399,18 +399,18 @@ const ServiceMegaMenu = ({ onClose }) => (
               key={s.name}
               to={s.route}
               onClick={onClose}
-              className={`block rounded-xl bg-gradient-to-br ${s.gradient} h-24 group overflow-hidden relative hover:scale-[1.03] transition-transform duration-200 shadow-sm`}
+              className={`block rounded-xl bg-linear-to-br ${s.gradient} h-24 group overflow-hidden relative hover:scale-[1.03] transition-transform duration-200 shadow-sm p-2`}
             >
-              <div className="h-14 overflow-hidden">{s.visual}</div>
+              <div className="h-14 overflow-hidden ">{s.visual}</div>
 
               <div className="px-2 pb-2">
-                <p className="text-white text-[10px] font-semibold truncate">
+                <p className="text-white text-[15px] font-semibold truncate">
                   {s.name}
                 </p>
 
-                <span className="text-white/60 text-[8px] flex items-center gap-0.5">
+                {/* <span className="text-white/60 text-[13px] flex items-center gap-0.5">
                   Explore <HiArrowRight className="w-2 h-2" />
-                </span>
+                </span> */}
               </div>
             </Link>
           ))}
@@ -418,15 +418,17 @@ const ServiceMegaMenu = ({ onClose }) => (
         <div className="grid grid-cols-4 gap-2.5">
           {serviceCards.slice(4).map((s) => {
             const inner = (
-              <>
-                <div className="h-14 overflow-hidden">{s.visual}</div>
-                <div className="px-2 pb-2">
-                  <p className="text-white text-[10px] font-semibold truncate">{s.name}</p>
-                  <span className="text-white/60 text-[8px] flex items-center gap-0.5 group-hover:text-white/90 transition">
-                    Explore <HiArrowRight className="w-2 h-2" />
-                  </span>
+              <div className="p-2">
+                <div className="h-14 overflow-hidden">
+                  {s.visual}
                 </div>
-              </>
+                <div className="px-2 pb-2">
+                  <p className="text-white text-[15px] font-semibold truncate">{s.name}</p>
+                  {/* <span className="text-white/60 text-[13px] flex items-center gap-0.5 group-hover:text-white/90 transition">
+                    Explore <HiArrowRight className="w-2 h-2" />
+                  </span> */}
+                </div>
+              </div>
             );
             const cls = `rounded-xl bg-gradient-to-br ${s.gradient} h-24 cursor-pointer group overflow-hidden relative hover:scale-[1.03] transition-transform duration-200 shadow-sm`;
             return s.route
@@ -439,25 +441,25 @@ const ServiceMegaMenu = ({ onClose }) => (
 
       {/* Featured sidebar */}
       <div className="bg-gray-50 border-l border-gray-100 p-4 flex flex-col">
-        <p className="text-[10px] font-bold tracking-widest text-blue-600 uppercase mb-2">
+        <p className="text-[15px] font-bold tracking-widest text-blue-600 uppercase mb-2">
           Featured Service
         </p>
-        <h3 className="text-base font-bold text-gray-900 leading-snug mb-1.5">
+        <h3 className="text-lg font-bold text-gray-900 leading-snug mb-1.5">
           AI Automation
         </h3>
-        <p className="text-[11px] text-gray-500 leading-relaxed mb-3">
+        <p className="text-[15px] text-gray-500 leading-relaxed mb-3">
           Build AI employees that work 24/7, automate workflows, qualify leads
           and transform efficiency.
         </p>
         <Link
           to="/ai-automation"
           onClick={onClose}
-          className="self-start flex items-center gap-1 bg-blue-900 text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-800 transition mb-3"
+          className="self-start flex items-center gap-1 bg-blue-900 text-white text-[15px] font-semibold px-3 py-1.5 rounded-lg hover:bg-blue-800 transition mb-3"
         >
           Learn More <HiArrowRight className="w-3 h-3" />
         </Link>
-        <div className="flex-1 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-xl flex items-center justify-center mb-3 min-h-16">
-          <span className="text-4xl">🤖</span>
+        <div className="flex-1 bg-linear-to-br from-blue-900 to-indigo-900 rounded-xl flex items-center justify-center mb-3 min-h-16">
+          <span className="text-3xl">🤖</span>
         </div>
         <div className="grid grid-cols-2 gap-1.5">
           {[
@@ -470,8 +472,8 @@ const ServiceMegaMenu = ({ onClose }) => (
               key={s.l}
               className="bg-white rounded-lg p-1.5 shadow-sm text-center border border-gray-100"
             >
-              <p className="text-xs font-bold text-blue-900">{s.v}</p>
-              <p className="text-[9px] text-gray-400">{s.l}</p>
+              <p className="text-base font-bold text-blue-900">{s.v}</p>
+              <p className="text-[14px] text-gray-400">{s.l}</p>
             </div>
           ))}
         </div>
@@ -483,7 +485,7 @@ const ServiceMegaMenu = ({ onClose }) => (
       {serviceCategories.map((cat) => (
         <div key={cat.label}>
           <p
-            className={`text-[10px] font-bold tracking-widest uppercase mb-2.5 ${cat.color}`}
+            className={`text-[15px] font-bold tracking-widest uppercase mb-2.5 ${cat.color}`}
           >
             {cat.label}
           </p>
@@ -491,7 +493,7 @@ const ServiceMegaMenu = ({ onClose }) => (
             {cat.items.map((item) => (
               <li
                 key={item}
-                className="text-[11px] text-gray-500 hover:text-blue-700 cursor-pointer transition-colors"
+                className="text-[15px] text-gray-500 hover:text-blue-700 cursor-pointer transition-colors"
               >
                 {item}
               </li>
@@ -516,12 +518,12 @@ const ServiceMegaMenu = ({ onClose }) => (
               />
             </svg>
           </div>
-          <p className="text-xs font-bold text-gray-900 mb-1">Need Help?</p>
-          <p className="text-[11px] text-gray-400 leading-snug">
+          <p className="text-base font-bold text-gray-900 mb-1">Need Help?</p>
+          <p className="text-[15px] text-gray-400 leading-snug">
             Book a free discovery call with our experts.
           </p>
         </div>
-        <button className="mt-3 flex items-center gap-1 text-blue-600 text-[11px] font-semibold hover:text-blue-800 transition">
+        <button className="mt-3 flex items-center gap-1 text-blue-600 text-[15px] font-semibold hover:text-blue-800 transition">
           Schedule a Call <HiArrowRight className="w-3 h-3" />
         </button>
       </div>
@@ -559,21 +561,21 @@ const Navbar = () => {
         />
       )}
 
-      <header className="relative w-full bg-white/95 backdrop-blur-sm border-b border-gray-100/80 sticky top-0 z-50 shadow-sm">
-        <div className="max-w-7xl mx-auto px-5 lg:px-8 h-[72px] flex items-center justify-between">
+      <header className="sticky w-full bg-white/95 backdrop-blur-sm border-b border-gray-100/80 top-0 z-50 shadow-sm">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8 h-18 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5">
             <div className="w-8 h-8 bg-blue-900 rounded-lg flex items-center justify-center">
-              <span className="text-white font-black text-sm">DR</span>
+              <span className="text-white font-black text-base">DR</span>
             </div>
-            <h1 className="text-xl lg:text-2xl font-bold tracking-tight text-gray-900">
+            <h1 className="text-xl lg:text-[35px] font-bold tracking-tight text-gray-900">
               DeepRank
             </h1>
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex">
-            <ul className="flex items-center gap-8 text-gray-600 text-sm font-medium">
+            <ul className="flex items-center gap-8 text-gray-600 text-base font-medium">
               <li
                 className="cursor-pointer hover:text-blue-700 transition-colors"
                 onMouseEnter={() => openMenu("products")}
@@ -612,7 +614,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <button
               onClick={openModal}
-              className="hidden lg:flex bg-blue-900 text-white px-5 py-2.5 rounded-xl items-center gap-2 text-sm font-semibold hover:bg-blue-800 transition-colors shadow-md shadow-blue-900/20">
+              className="hidden lg:flex bg-blue-900 text-white px-5 py-2.5 rounded-xl items-center gap-2 text-[14px] font-semibold hover:bg-blue-800 transition-colors shadow-md shadow-blue-900/20 cursor-pointer">
               Book Discovery Call <HiArrowRight className="w-4 h-4" />
             </button>
             <button
@@ -654,12 +656,12 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 z-50">
             <div className="px-5 py-5">
-              <ul className="flex flex-col gap-1 text-gray-700 font-medium text-sm mb-5">
+              <ul className="flex flex-col gap-1 text-gray-700 font-medium text-base mb-5">
                 {[
-                  { label: "Products",   to: null,           modal: false },
-                  { label: "Services",   to: null,           modal: false },
-                  { label: "Case Study", to: "/case-study",  modal: false },
-                  { label: "Contact Us", to: null,           modal: true  },
+                  { label: "Products", to: null, modal: false },
+                  { label: "Services", to: null, modal: false },
+                  { label: "Case Study", to: "/case-study", modal: false },
+                  { label: "Contact Us", to: null, modal: true },
                 ].map((item) => (
                   <li
                     key={item.label}
@@ -672,7 +674,7 @@ const Navbar = () => {
               </ul>
               <button
                 onClick={() => { setIsOpen(false); openModal(); }}
-                className="w-full bg-blue-900 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-blue-800 transition text-sm"
+                className="w-full bg-blue-900 text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-blue-800 transition text-base"
               >
                 Book Discovery Call <HiArrowRight className="w-4 h-4" />
               </button>
