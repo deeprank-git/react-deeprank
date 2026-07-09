@@ -1,4 +1,5 @@
 import { HiArrowRight } from "react-icons/hi";
+import { HiOutlineRocketLaunch, HiOutlineBuildingOffice2, HiOutlineGlobeAlt, HiOutlineCpuChip } from "react-icons/hi2";
 import HealthCare from "../assets/HealthCare.png";
 import Ecommerce from "../assets/Ecommerce.png";
 import manufacturing2 from "../assets/manufacturing2.png";
@@ -15,10 +16,34 @@ const industries = [
 ];
 
 const stats = [
-  { val: "100+", label: "Project Delivered", icon: "🚀" },
-  { val: "20+", label: "Industries Served", icon: "🏭" },
-  { val: "Global", label: "Clients Worldwide", icon: "🌍" },
-  { val: "AI First", label: "Innovation Focused", icon: "🤖" },
+  {
+    icon: HiOutlineRocketLaunch,
+    val: "100+",
+    label: "Projects Delivered",
+    badgeBg: "rgba(108,92,231,0.15)",
+    iconColor: "#B0A5F4",
+  },
+  {
+    icon: HiOutlineBuildingOffice2,
+    val: "20+",
+    label: "Industries Served",
+    badgeBg: "rgba(16,185,129,0.15)",
+    iconColor: "#6EE7B7",
+  },
+  {
+    icon: HiOutlineGlobeAlt,
+    val: "Global",
+    label: "Clients Worldwide",
+    badgeBg: "rgba(37,99,235,0.15)",
+    iconColor: "#93C5FD",
+  },
+  {
+    icon: HiOutlineCpuChip,
+    val: "AI First",
+    label: "Innovation Focused",
+    badgeBg: "rgba(217,119,6,0.15)",
+    iconColor: "#FCD34D",
+  },
 ];
 
 const Industries = () => (
@@ -28,7 +53,7 @@ const Industries = () => (
 
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
           <div>
-            <span className="inline-block text-base  font-bold tracking-widest text-[#08104A] uppercase px-3 py-1.5">
+            <span className="inline-block text-xl  font-bold tracking-widest text-[#08104A] uppercase px-3 pt-1.5">
               Industry We Transform
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight">
@@ -75,18 +100,26 @@ const Industries = () => (
     <section className="bg-[#08104A] py-10">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-          {stats.map((s, i) => (
-            <div
-              key={s.label}
-              className={`flex items-center gap-4 ${i !== 0 ? "border-l border-white/10 pl-4 sm:pl-8" : ""}`}
-            >
-              <span className="text-2xl sm:text-3xl">{s.icon}</span>
-              <div>
-                <p className="text-white text-xl sm:text-2xl font-black">{s.val}</p>
-                <p className="text-blue-300/80 text-xs sm:text-sm font-medium">{s.label}</p>
+          {stats.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.label}
+                className={`flex items-center gap-3.5 ${i !== 0 ? "border-l border-white/10 pl-4 sm:pl-8" : ""}`}
+              >
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: s.badgeBg }}
+                >
+                  <Icon size={22} style={{ color: s.iconColor }} strokeWidth={1.8} />
+                </div>
+                <div>
+                  <p className="text-white text-xl sm:text-2xl font-black leading-tight">{s.val}</p>
+                  <p className="text-white/55 text-xs sm:text-sm font-medium mt-0.5">{s.label}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

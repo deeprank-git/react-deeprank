@@ -4,21 +4,21 @@ import hero4 from "../assets/hero4.png";
 
 const cases = [
   {
-    img: hero4, tag: "Real Estate",  tagBg: "bg-blue-100 text-blue-700",
+    img: hero4, tag: "Real Estate", tagBg: "bg-blue-100 text-blue-700",
     stat: "8x", statLabel: "Increase in Leads",
     title: "How AI Automation Transformed Real Estate Lead Gen",
     desc: "A custom AI agent qualified leads 24/7, cutting response time from hours to seconds.",
     to: "/case-study/tsamuel-estate-agents",
   },
   {
-    img: hero4, tag: "Real Estate",  tagBg: "bg-blue-100 text-blue-700",
+    img: hero4, tag: "Real Estate", tagBg: "bg-blue-100 text-blue-700",
     stat: "8x", statLabel: "Increase in Leads",
     title: "E-commerce Growth with AI Personalisation Engine",
     desc: "A recommendation engine boosted conversion rates across 40,000 SKUs.",
     to: "/case-study",
   },
   {
-    img: hero4, tag: "Real Estate",  tagBg: "bg-blue-100 text-blue-700",
+    img: hero4, tag: "Real Estate", tagBg: "bg-blue-100 text-blue-700",
     stat: "8x", statLabel: "Increase in Leads",
     title: "Automating Patient Workflows for a Healthcare Chain",
     desc: "Smart automation reduced admin time by 80%, freeing staff to focus on patient care.",
@@ -32,7 +32,7 @@ const CaseStudies = () => (
 
       <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10">
         <div>
-          <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-3">
+          <span className="inline-block text-xl font-bold tracking-widest text-[#08104A] uppercase px-3 pt-1.5 mb-1">
             Featured Case Studies
           </span>
         </div>
