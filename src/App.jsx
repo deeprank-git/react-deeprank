@@ -44,7 +44,7 @@ function App() {
   return (
     <Router>
       <ModalProvider>
-        <div className="font-[Inter]">
+        <div className="font-[Rajdhani]">
           <DiscoveryModal />
           <Navbar />
           <Routes>
@@ -99,7 +99,7 @@ function App() {
           <Footer />
         </div>
       </ModalProvider>
-      {/* <div className="font-[Inter]">
+      {/* <div className="font-[Rajdhani]">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

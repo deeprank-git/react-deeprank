@@ -33,7 +33,7 @@ const Products = () => (
 
       {/* Header */}
       <div className="mb-10">
-        <p className="text-xs font-bold tracking-widest text-blue-600 uppercase mb-3">
+        <p className="text-2xl font-bold tracking-widest text-[#08104A] uppercase mb-2">
           Our Products
         </p>
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight">

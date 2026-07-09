@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
 import hero3 from "../assets/hero3.png";
 import automation from "../assets/automation.png";
@@ -42,27 +42,34 @@ const AIFeature = () => {
   const tab = tabs[activeIdx];
   const content = tabContent[tab.label];
 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIdx((i) => (i + 1) % tabs.length);
+    }, 2000);
+    return () => clearInterval(id);
+  }, [activeIdx]);
+
   return (
-    <section className="py-14 lg:py-20 bg-white">
+    <section className="py-14 px-14">
       <div className="max-w-7xl mx-auto px-5 lg:px-8">
         <div className="flex gap-10 lg:gap-14 items-center">
 
-          {/* ── Left 30% ── */}
-          <div className="w-[30%] shrink-0">
-            <p className="text-xs font-bold text-gray-400 mb-5 tracking-widest">
+          {/* ── Left 40% ── */}
+          <div className="w-[40%] shrink-0">
+            <p className="text-sm font-bold text-gray-400 mb-5 tracking-widest">
               {pad(activeIdx + 1)}{" "}
               <span className="text-gray-300 mx-1">/</span>{" "}
               {pad(tabs.length)}
             </p>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight mb-4">
+            <h2 className="text-5xl sm:text-4xl lg:text-5xl font-black text-[#08104A] leading-tight mb-4">
               {content.title}
             </h2>
-            <p className="text-gray-500 text-sm leading-relaxed mb-8">
+            <p className="text-gray-500 text-lg leading-relaxed mb-8">
               {content.desc}
             </p>
 
-            <button className="inline-flex items-center gap-2 bg-[#08104A] hover:bg-blue-900 text-white px-6 py-3.5 rounded-xl font-semibold text-sm transition-all shadow-lg shadow-blue-900/20">
+            <button className="inline-flex items-center gap-2 bg-[#08104A] hover:bg-blue-900 text-white px-6 py-3.5 rounded-xl font-semibold text-base transition-all shadow-lg shadow-blue-900/20">
               {content.btn} <HiArrowRight className="w-4 h-4" />
             </button>
           </div>
@@ -82,9 +89,9 @@ const AIFeature = () => {
                   <button
                     key={t.label}
                     onClick={() => setActiveIdx(i)}
-                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold border transition-all whitespace-nowrap ${activeIdx === i
-                        ? "bg-white border-white text-[#08104A] shadow-md"
-                        : "bg-white/20 border-white/30 text-white hover:bg-white/40"
+                    className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-base font-semibold border transition-all whitespace-nowrap ${activeIdx === i
+                      ? "bg-white border-white text-[#08104A] shadow-md"
+                      : "bg-white/20 border-white/30 text-white hover:bg-white/40"
                       }`}
                   >
                     {activeIdx === i && (
