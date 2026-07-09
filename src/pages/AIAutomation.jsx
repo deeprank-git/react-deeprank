@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { HiArrowRight } from "react-icons/hi";
-import { useEffect, useState } from "react";
+import { HiArrowRight, HiX } from "react-icons/hi";
+import { useEffect, useState, useRef } from "react";
 import chatbotImg from "../assets/chatbot.png";
 import voiceAgentImg from "../assets/voice-agent.png";
 import workflowImg from "../assets/workflow.png";
@@ -14,9 +14,98 @@ import Process from "../sections/Process";
 import CaseStudyFAQ from "../components/CaseStudyFAQ";
 import { aiAutomationCaseStudy } from "../data/caseStudies";
 import robot from "../assets/robot.png";
+import { useModal } from "../context/ModalContext";
+
+const demoScript = [
+  { who: "user", text: "Can you help me automate customer support?" },
+  { who: "ai", text: "Absolutely — I can qualify leads, answer FAQs, and escalate complex issues to your team in real time." },
+  { who: "user", text: "How fast is the response time?" },
+  { who: "ai", text: "Under 300ms on average, 24/7, in over 30 languages." },
+];
+
+const AIDemoModal = ({ open, onClose }) => {
+  const [messages, setMessages] = useState([]);
+  const [typing, setTyping] = useState(false);
+  const timers = useRef([]);
+
+  useEffect(() => {
+    if (!open) return;
+
+    setMessages([]);
+    setTyping(false);
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
+
+    let delay = 300;
+    demoScript.forEach((m) => {
+      if (m.who === "ai") {
+        timers.current.push(setTimeout(() => setTyping(true), delay));
+        delay += 700;
+        timers.current.push(
+          setTimeout(() => {
+            setTyping(false);
+            setMessages((prev) => [...prev, m]);
+          }, delay)
+        );
+        delay += 300;
+      } else {
+        timers.current.push(
+          setTimeout(() => setMessages((prev) => [...prev, m]), delay)
+        );
+        delay += 600;
+      }
+    });
+
+    return () => timers.current.forEach(clearTimeout);
+  }, [open]);
+
+  if (!open) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+      <div className="bg-white rounded-2xl w-full max-w-sm p-5 shadow-2xl">
+        <div className="flex justify-between items-center mb-4">
+          <p className="text-sm font-bold text-gray-900">AI Assistant demo</p>
+          <button onClick={onClose} className="text-gray-400 hover:text-gray-700 transition-colors">
+            <HiX className="w-5 h-5" />
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-2.5 min-h-[220px]">
+          {messages.map((m, i) => (
+            <div
+              key={i}
+              className={`max-w-[80%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${m.who === "user"
+                  ? "self-end bg-[#0B0F9C] text-white"
+                  : "self-start bg-gray-100 text-gray-900"
+                }`}
+            >
+              {m.text}
+            </div>
+          ))}
+          {typing && (
+            <div className="self-start bg-gray-100 text-gray-400 px-3.5 py-2.5 rounded-2xl text-sm">
+              AI is typing...
+            </div>
+          )}
+        </div>
+
+        <button
+          onClick={onClose}
+          className="w-full mt-5 bg-[#0B0F9C] text-white py-3 rounded-xl text-sm font-semibold flex items-center justify-center gap-2"
+        >
+          Book Discovery Call <HiArrowRight />
+        </button>
+      </div>
+    </div>
+  );
+};
 
 const AIAutomation = () => {
+  const { open: openModal } = useModal();
   const [counter, setCounter] = useState(0);
+  const [demoOpen, setDemoOpen] = useState(false);
+
   useEffect(() => {
     let current = 0;
     const interval = setInterval(() => {
@@ -85,12 +174,18 @@ const AIAutomation = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
-                <button className="bg-[#0B0F9C] text-white px-7 py-4 rounded-xl flex items-center gap-2">
+                <button
+                  onClick={openModal}
+                  className="bg-[#0B0F9C] text-white px-7 py-4 rounded-xl flex items-center gap-2 cursor-pointer"
+                >
                   Book Discovery Call
                   <HiArrowRight />
                 </button>
 
-                <button className="border border-gray-300 px-7 py-4 rounded-xl">
+                <button
+                  onClick={() => setDemoOpen(true)}
+                  className="border border-gray-300 px-7 py-4 rounded-xl cursor-pointer hover:border-[#0B0F9C] hover:text-[#0B0F9C] transition-colors"
+                >
                   See AI Demo
                 </button>
               </div>
@@ -122,30 +217,27 @@ const AIAutomation = () => {
               </div>
             </div>
 
-            {/* Right */}
-            <div className="relative">
+            {/* Right — image with floating proof-point cards */}
+            <div className="relative py-6">
               <div className="absolute inset-0 rounded-full bg-blue-100 blur-3xl opacity-50"></div>
 
-              <img
-                src={robot}
-                alt=""
-                className="relative z-10 w-full max-w-lg mx-auto"
-              />
+              <div className="relative z-10 w-full max-w-lg mx-auto">
+                <img src={robot} alt="AI agent" className="w-full" />
 
-              {/* Floating Card */}
-              <div className="absolute right-0 top-1/2 bg-white shadow-2xl rounded-2xl p-6 z-20">
-                <h3 className="text-5xl font-bold text-[#0B0F9C]">
-                  {counter}+
-                </h3>
+                {/* Chat bubble */}
+                <div className="hidden sm:block absolute -top-2 -left-6 bg-white rounded-2xl px-4 py-3 shadow-lg text-sm text-gray-800 max-w-[190px] animate-[float_4s_ease-in-out_infinite]">
+                  Hi! How can I help today? 👋
+                </div>
 
-                <p className="text-gray-600 mt-2">Solutions Delivered</p>
+                {/* Live badge */}
+                <div className="hidden sm:flex absolute bottom-16 -right-8 items-center gap-2 bg-white rounded-xl px-4 py-2.5 shadow-lg text-xs font-semibold text-gray-800 animate-[float_4s_ease-in-out_infinite_0.5s]">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  24/7 Active
+                </div>
 
-                <div className="mt-4 h-12 flex items-end gap-1">
-                  <div className="w-3 h-3 bg-blue-300 rounded"></div>
-                  <div className="w-3 h-5 bg-blue-400 rounded"></div>
-                  <div className="w-3 h-6 bg-blue-500 rounded"></div>
-                  <div className="w-3 h-8 bg-blue-600 rounded"></div>
-                  <div className="w-3 h-10 bg-blue-700 rounded"></div>
+                {/* Stat badge */}
+                <div className="hidden sm:block absolute -bottom-4 left-4 bg-white rounded-xl px-4 py-2.5 shadow-lg text-xs font-semibold text-gray-800 animate-[float_4s_ease-in-out_infinite_1s]">
+                  ⚡ 0.3s avg response
                 </div>
               </div>
             </div>
@@ -233,7 +325,9 @@ const AIAutomation = () => {
       <Industries />
       <Process />
       <CaseStudyFAQ data={aiAutomationCaseStudy} />
-    <CTA />
+      <CTA />
+
+      <AIDemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </>
   );
 };

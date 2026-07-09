@@ -8,11 +8,13 @@ import {
 } from "react-icons/hi2";
 import CTA from "../sections/CTA";
 import { useModal } from "../context/ModalContext";
-import hero4 from "../assets/hero4.png";
 import hero1 from "../assets/hero1.png";
-import hero3 from "../assets/hero3.png";
-import hero2 from "../assets/hero2.png";
-import hero5 from "../assets/hero5.png";
+import realEstateImg from "../assets/RealEstate.png";
+import healthcareImg from "../assets/HealthCare.png";
+import ecommerceImg from "../assets/Ecommerce.png";
+import manufacturingImg from "../assets/manufacturing2.png";
+import financeImg from "../assets/digitalmarketing.png";
+import educationImg from "../assets/exademy.png";
 
 /* ── scroll-reveal hook ── */
 function useReveal(threshold = 0.12) {
@@ -31,76 +33,86 @@ function useReveal(threshold = 0.12) {
 
 /* ── static data ── */
 const solutions = [
-  { icon: HiArrowPath,           title: "Process Automation",       desc: "Automate repetitive workflows and eliminate manual inefficiencies across your operations.", items: ["Smart Workflows", "System Triggers", "Real-time Sync"] },
-  { icon: HiSquares2X2,          title: "Custom Platforms",         desc: "Purpose-built platforms tailored to your business logic, workflows, and user needs.", items: ["SaaS Platforms", "Internal Tools", "Client Portals"] },
-  { icon: HiChartBarSquare,      title: "Data & Analytics",         desc: "Turn raw data into actionable insights with custom dashboards and reporting systems.", items: ["BI Dashboards", "Predictive Models", "Data Pipelines"] },
-  { icon: HiBolt,                title: "AI-Powered Solutions",     desc: "Embed AI into your product for smarter decisions, personalization, and automation.", items: ["ML Models", "NLP / LLMs", "AI Agents"] },
-  { icon: HiArrowsRightLeft,     title: "API Integrations",         desc: "Connect your systems seamlessly with third-party APIs and custom middleware.", items: ["REST & GraphQL", "CRM / ERP Sync", "Webhooks"] },
-  { icon: HiWrenchScrewdriver,   title: "Legacy Modernisation",     desc: "Rebuild outdated systems into modern, scalable, cloud-ready architectures.", items: ["Re-platforming", "Code Refactor", "Cloud Migration"] },
-  { icon: HiServerStack,         title: "Cloud Infrastructure",     desc: "Design and deploy resilient, auto-scaling cloud infrastructure for peak performance.", items: ["AWS / Azure / GCP", "DevOps & CI/CD", "99.9% Uptime"] },
-  { icon: HiDevicePhoneMobile,   title: "Mobile Applications",      desc: "Build cross-platform mobile apps that deliver exceptional user experiences.", items: ["iOS & Android", "React Native", "PWA"] },
-  { icon: HiShoppingCart,        title: "E-commerce Solutions",     desc: "Custom storefronts and commerce platforms engineered for conversion and scale.", items: ["Headless Commerce", "Payment Gateways", "Inventory Mgmt"] },
-  { icon: HiCpuChip,             title: "Security & Compliance",    desc: "Enterprise-grade security architecture to protect your data and meet compliance standards.", items: ["ISO 27001", "GDPR Ready", "Pen Testing"] },
-  { icon: HiPresentationChartBar,title: "Business Intelligence",    desc: "Custom BI solutions that surface the metrics and trends that matter most to your team.", items: ["KPI Tracking", "Report Builders", "Live Dashboards"] },
-  { icon: HiRectangleStack,      title: "SaaS Development",        desc: "Full-stack SaaS products built to scale from MVP to enterprise with multi-tenancy.", items: ["Multi-tenant Arch", "Subscription Billing", "Onboarding Flows"] },
+  { icon: HiArrowPath, title: "Process Automation", desc: "Automate repetitive workflows and eliminate manual inefficiencies across your operations.", items: ["Smart Workflows", "System Triggers", "Real-time Sync"] },
+  { icon: HiSquares2X2, title: "Custom Platforms", desc: "Purpose-built platforms tailored to your business logic, workflows, and user needs.", items: ["SaaS Platforms", "Internal Tools", "Client Portals"] },
+  { icon: HiChartBarSquare, title: "Data & Analytics", desc: "Turn raw data into actionable insights with custom dashboards and reporting systems.", items: ["BI Dashboards", "Predictive Models", "Data Pipelines"] },
+  { icon: HiBolt, title: "AI-Powered Solutions", desc: "Embed AI into your product for smarter decisions, personalization, and automation.", items: ["ML Models", "NLP / LLMs", "AI Agents"] },
+  { icon: HiArrowsRightLeft, title: "API Integrations", desc: "Connect your systems seamlessly with third-party APIs and custom middleware.", items: ["REST & GraphQL", "CRM / ERP Sync", "Webhooks"] },
+  { icon: HiWrenchScrewdriver, title: "Legacy Modernisation", desc: "Rebuild outdated systems into modern, scalable, cloud-ready architectures.", items: ["Re-platforming", "Code Refactor", "Cloud Migration"] },
+  { icon: HiServerStack, title: "Cloud Infrastructure", desc: "Design and deploy resilient, auto-scaling cloud infrastructure for peak performance.", items: ["AWS / Azure / GCP", "DevOps & CI/CD", "99.9% Uptime"] },
+  { icon: HiDevicePhoneMobile, title: "Mobile Applications", desc: "Build cross-platform mobile apps that deliver exceptional user experiences.", items: ["iOS & Android", "React Native", "PWA"] },
+  { icon: HiShoppingCart, title: "E-commerce Solutions", desc: "Custom storefronts and commerce platforms engineered for conversion and scale.", items: ["Headless Commerce", "Payment Gateways", "Inventory Mgmt"] },
+  { icon: HiCpuChip, title: "Security & Compliance", desc: "Enterprise-grade security architecture to protect your data and meet compliance standards.", items: ["ISO 27001", "GDPR Ready", "Pen Testing"] },
+  { icon: HiPresentationChartBar, title: "Business Intelligence", desc: "Custom BI solutions that surface the metrics and trends that matter most to your team.", items: ["KPI Tracking", "Report Builders", "Live Dashboards"] },
+  { icon: HiRectangleStack, title: "SaaS Development", desc: "Full-stack SaaS products built to scale from MVP to enterprise with multi-tenancy.", items: ["Multi-tenant Arch", "Subscription Billing", "Onboarding Flows"] },
 ];
 
 const techStack = [
-  { name: "React",       color: "text-cyan-600      bg-cyan-50      border-cyan-100" },
-  { name: "Next.js",     color: "text-gray-800      bg-gray-100     border-gray-200" },
-  { name: "Node.js",     color: "text-green-700     bg-green-50     border-green-100" },
-  { name: "Python",      color: "text-blue-600      bg-blue-50      border-blue-100" },
-  { name: "TypeScript",  color: "text-blue-700      bg-blue-50      border-blue-100" },
-  { name: "AWS",         color: "text-orange-600    bg-orange-50    border-orange-100" },
-  { name: "Azure",       color: "text-sky-600       bg-sky-50       border-sky-100" },
-  { name: ".NET",        color: "text-purple-700    bg-purple-50    border-purple-100" },
-  { name: "PostgreSQL",  color: "text-indigo-600    bg-indigo-50    border-indigo-100" },
-  { name: "MongoDB",     color: "text-green-600     bg-green-50     border-green-100" },
-  { name: "Docker",      color: "text-blue-500      bg-blue-50      border-blue-100" },
-  { name: "Kubernetes",  color: "text-blue-800      bg-blue-50      border-blue-100" },
-  { name: "GraphQL",     color: "text-pink-600      bg-pink-50      border-pink-100" },
-  { name: "Redis",       color: "text-red-600       bg-red-50       border-red-100" },
-  { name: "Flutter",     color: "text-sky-500       bg-sky-50       border-sky-100" },
-  { name: "Terraform",   color: "text-violet-600    bg-violet-50    border-violet-100" },
+  { name: "React", color: "text-cyan-600      bg-cyan-50      border-cyan-100" },
+  { name: "Next.js", color: "text-gray-800      bg-gray-100     border-gray-200" },
+  { name: "Node.js", color: "text-green-700     bg-green-50     border-green-100" },
+  { name: "Python", color: "text-blue-600      bg-blue-50      border-blue-100" },
+  { name: "TypeScript", color: "text-blue-700      bg-blue-50      border-blue-100" },
+  { name: "AWS", color: "text-orange-600    bg-orange-50    border-orange-100" },
+  { name: "Azure", color: "text-sky-600       bg-sky-50       border-sky-100" },
+  { name: ".NET", color: "text-purple-700    bg-purple-50    border-purple-100" },
+  { name: "PostgreSQL", color: "text-indigo-600    bg-indigo-50    border-indigo-100" },
+  { name: "MongoDB", color: "text-green-600     bg-green-50     border-green-100" },
+  { name: "Docker", color: "text-blue-500      bg-blue-50      border-blue-100" },
+  { name: "Kubernetes", color: "text-blue-800      bg-blue-50      border-blue-100" },
+  { name: "GraphQL", color: "text-pink-600      bg-pink-50      border-pink-100" },
+  { name: "Redis", color: "text-red-600       bg-red-50       border-red-100" },
+  { name: "Flutter", color: "text-sky-500       bg-sky-50       border-sky-100" },
+  { name: "Terraform", color: "text-violet-600    bg-violet-50    border-violet-100" },
 ];
 
 const stats = [
-  { value: "100+",  label: "Solutions Delivered" },
-  { value: "98%",   label: "Client Satisfaction" },
-  { value: "40%",   label: "Avg. Cost Reduction" },
-  { value: "60%",   label: "Ops Efficiency Gain" },
+  { value: "100+", label: "Solutions Delivered" },
+  { value: "98%", label: "Client Satisfaction" },
+  { value: "40%", label: "Avg. Cost Reduction" },
+  { value: "60%", label: "Ops Efficiency Gain" },
   { value: "99.9%", label: "System Reliability" },
 ];
 
 const industries = [
-  { label: "Real Estate",   img: hero4, desc: "Lead gen, CRM, property portals" },
-  { label: "Healthcare",    img: hero1, desc: "Patient systems, telemedicine" },
-  { label: "E-Commerce",    img: hero2, desc: "Custom storefronts, inventory" },
-  { label: "Manufacturing", img: hero3, desc: "ERP, automation, IoT platforms" },
-  { label: "Finance",       img: hero5, desc: "Fintech, compliance, reporting" },
-  { label: "Education",     img: hero4, desc: "LMS, student portals, e-learning" },
-  { label: "& More",        img: hero1, desc: "We serve every growing industry" },
+  { label: "Real Estate", img: realEstateImg, desc: "Lead gen, CRM, property portals" },
+  { label: "Healthcare", img: healthcareImg, desc: "Patient systems, telemedicine" },
+  { label: "E-Commerce", img: ecommerceImg, desc: "Custom storefronts, inventory" },
+  { label: "Manufacturing", img: manufacturingImg, desc: "ERP, automation, IoT platforms" },
+  { label: "Finance", img: financeImg, desc: "Fintech, compliance, reporting" },
+  { label: "Education", img: educationImg, desc: "LMS, student portals, e-learning" },
+  { label: "& More", img: hero1, desc: "We serve every growing industry" },
 ];
 
 const processSteps = [
-  { n: "01", title: "Discovery & Planning",      desc: "Deep-dive sessions to understand your challenges, goals, tech stack, and success criteria." },
-  { n: "02", title: "Design & Architecture",     desc: "System design, UI/UX prototypes, and technical architecture reviewed with your team." },
-  { n: "03", title: "Build & Develop",           desc: "Agile development in 2-week sprints with continuous updates and live demos." },
-  { n: "04", title: "Test & Iterate",            desc: "Rigorous QA, security audits, and user testing to ensure production-ready quality." },
-  { n: "05", title: "Launch & Support",          desc: "Smooth deployment, staff training, and ongoing maintenance with SLA-backed support." },
+  { n: "01", title: "Discovery & Planning", desc: "Deep-dive sessions to understand your challenges, goals, tech stack, and success criteria." },
+  { n: "02", title: "Design & Architecture", desc: "System design, UI/UX prototypes, and technical architecture reviewed with your team." },
+  { n: "03", title: "Build & Develop", desc: "Agile development in 2-week sprints with continuous updates and live demos." },
+  { n: "04", title: "Test & Iterate", desc: "Rigorous QA, security audits, and user testing to ensure production-ready quality." },
+  { n: "05", title: "Launch & Support", desc: "Smooth deployment, staff training, and ongoing maintenance with SLA-backed support." },
 ];
 
 const faqs = [
-  { q: "What types of custom solutions do you build?",
-    a: "We build anything from internal automation tools and SaaS platforms to full enterprise systems. If there's a business problem, we engineer a precise solution for it." },
-  { q: "How long does development typically take?",
-    a: "Timelines vary by complexity. A simple automation tool may take 4–6 weeks. Complex platforms typically range from 3–6 months. We provide a detailed roadmap after discovery." },
-  { q: "Can you integrate with our existing systems?",
-    a: "Absolutely. We specialise in API integrations, legacy modernisation, and connecting disparate systems via custom middleware and webhooks." },
-  { q: "What is your development process?",
-    a: "We follow a 5-step collaborative process: Discovery → Design → Build → Test → Launch, with weekly demos and full transparency throughout." },
-  { q: "Do you offer ongoing support after launch?",
-    a: "Yes. All projects include a post-launch stabilisation period. We also offer retainer-based support, feature development, and SLA-backed maintenance packages." },
+  {
+    q: "What types of custom solutions do you build?",
+    a: "We build anything from internal automation tools and SaaS platforms to full enterprise systems. If there's a business problem, we engineer a precise solution for it."
+  },
+  {
+    q: "How long does development typically take?",
+    a: "Timelines vary by complexity. A simple automation tool may take 4–6 weeks. Complex platforms typically range from 3–6 months. We provide a detailed roadmap after discovery."
+  },
+  {
+    q: "Can you integrate with our existing systems?",
+    a: "Absolutely. We specialise in API integrations, legacy modernisation, and connecting disparate systems via custom middleware and webhooks."
+  },
+  {
+    q: "What is your development process?",
+    a: "We follow a 5-step collaborative process: Discovery → Design → Build → Test → Launch, with weekly demos and full transparency throughout."
+  },
+  {
+    q: "Do you offer ongoing support after launch?",
+    a: "Yes. All projects include a post-launch stabilisation period. We also offer retainer-based support, feature development, and SLA-backed maintenance packages."
+  },
 ];
 
 /* ── FAQ accordion item ── */
@@ -164,7 +176,7 @@ const Hero = () => {
             {/* trusted by */}
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
-                {["bg-blue-500","bg-purple-500","bg-green-500","bg-orange-500","bg-pink-500"].map((c, i) => (
+                {["bg-blue-500", "bg-purple-500", "bg-green-500", "bg-orange-500", "bg-pink-500"].map((c, i) => (
                   <div key={i} className={`w-8 h-8 rounded-full ${c} border-2 border-white flex items-center justify-center text-[10px] font-bold text-white`}>
                     {String.fromCharCode(65 + i)}
                   </div>
@@ -228,8 +240,8 @@ const Hero = () => {
               <div className="absolute -right-4 top-8 flex flex-col gap-2">
                 {[
                   { v: "100+", l: "Solutions", color: "text-blue-600" },
-                  { v: "98%",  l: "Satisfaction", color: "text-green-600" },
-                  { v: "5+",   l: "Years", color: "text-purple-600" },
+                  { v: "98%", l: "Satisfaction", color: "text-green-600" },
+                  { v: "5+", l: "Years", color: "text-purple-600" },
                 ].map((s) => (
                   <div key={s.l} className="bg-white rounded-xl shadow-lg border border-gray-100 px-3 py-2 text-right">
                     <p className={`text-base font-black ${s.color}`}>{s.v}</p>
@@ -249,10 +261,10 @@ const Hero = () => {
 const Benefits = () => {
   const [ref, visible] = useReveal();
   const items = [
-    { icon: HiCheckCircle, title: "Business Focused",        desc: "Solutions aligned to your specific business goals and success metrics.", color: "text-blue-600 bg-blue-50" },
+    { icon: HiCheckCircle, title: "Business Focused", desc: "Solutions aligned to your specific business goals and success metrics.", color: "text-blue-600 bg-blue-50" },
     { icon: HiArrowTrendingUp, title: "Scalable & Future Ready", desc: "Built to grow with you — architected for 10x scale from day one.", color: "text-green-600 bg-green-50" },
-    { icon: HiCpuChip,    title: "Secure & Reliable",        desc: "Enterprise-grade security, 99.9% uptime SLAs, and full compliance.", color: "text-purple-600 bg-purple-50" },
-    { icon: HiArrowPath,  title: "Agile & Transparent",      desc: "Weekly sprint demos, full visibility, and a collaborative partnership.", color: "text-orange-600 bg-orange-50" },
+    { icon: HiCpuChip, title: "Secure & Reliable", desc: "Enterprise-grade security, 99.9% uptime SLAs, and full compliance.", color: "text-purple-600 bg-purple-50" },
+    { icon: HiArrowPath, title: "Agile & Transparent", desc: "Weekly sprint demos, full visibility, and a collaborative partnership.", color: "text-orange-600 bg-orange-50" },
   ];
   return (
     <section ref={ref} className="bg-gray-50 py-14 lg:py-20">
@@ -268,7 +280,7 @@ const Benefits = () => {
             <div
               key={title}
               className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: `opacity .6s ${i*100}ms, transform .6s ${i*100}ms, box-shadow .3s, translate .3s` }}
+              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: `opacity .6s ${i * 100}ms, transform .6s ${i * 100}ms, box-shadow .3s, translate .3s` }}
             >
               <div className={`w-11 h-11 rounded-2xl ${color} flex items-center justify-center mb-4`}>
                 <Icon className="w-5 h-5" />
@@ -299,7 +311,7 @@ const SolutionsGrid = () => {
             <div
               key={title}
               className="bg-white border-2 border-gray-100 rounded-2xl p-5 hover:border-blue-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)", transition: `opacity .55s ${i*45}ms, transform .55s ${i*45}ms, box-shadow .3s, border-color .3s, translate .3s` }}
+              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(20px)", transition: `opacity .55s ${i * 45}ms, transform .55s ${i * 45}ms, box-shadow .3s, border-color .3s, translate .3s` }}
             >
               <div className="w-10 h-10 rounded-xl bg-blue-50 group-hover:bg-blue-900 flex items-center justify-center mb-3.5 transition-colors duration-300">
                 <Icon className="w-5 h-5 text-blue-600 group-hover:text-blue-300 transition-colors duration-300" />
@@ -359,7 +371,7 @@ const StatsBar = () => {
             <div
               key={label}
               className="text-center"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(12px)", transition: `opacity .6s ${i*100}ms, transform .6s ${i*100}ms` }}
+              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(12px)", transition: `opacity .6s ${i * 100}ms, transform .6s ${i * 100}ms` }}
             >
               <p className="text-3xl sm:text-4xl font-black text-white mb-1">{value}</p>
               <p className="text-xs text-blue-300 font-medium">{label}</p>
@@ -386,7 +398,7 @@ const Industries = () => {
             <div
               key={label}
               className="relative rounded-2xl overflow-hidden group cursor-pointer hover:shadow-xl transition-all duration-300"
-              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: `opacity .6s ${i*80}ms, transform .6s ${i*80}ms` }}
+              style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateY(16px)", transition: `opacity .6s ${i * 80}ms, transform .6s ${i * 80}ms` }}
             >
               <div className="h-36">
                 <img src={img} alt={label} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
@@ -434,8 +446,8 @@ const Process = () => {
               <div className="grid grid-cols-3 gap-3 mb-5">
                 {[
                   { label: "Revenue Growth", value: "80%", icon: "📈", color: "text-green-400" },
-                  { label: "ROI Achieved",   value: "2.6x", icon: "💰", color: "text-blue-400" },
-                  { label: "Time Saved",     value: "60h/wk", icon: "⏱️", color: "text-purple-400" },
+                  { label: "ROI Achieved", value: "2.6x", icon: "💰", color: "text-blue-400" },
+                  { label: "Time Saved", value: "60h/wk", icon: "⏱️", color: "text-purple-400" },
                 ].map((m) => (
                   <div key={m.label} className="bg-white/5 rounded-xl p-3 border border-white/8 text-center">
                     <p className="text-lg mb-0.5">{m.icon}</p>
@@ -452,7 +464,7 @@ const Process = () => {
                   <span className="text-[10px] text-blue-400 font-semibold">Last 6 Months</span>
                 </div>
                 <div className="flex items-end gap-1.5 h-20">
-                  {[30,48,40,72,58,88,65,94,78,95].map((h, i) => (
+                  {[30, 48, 40, 72, 58, 88, 65, 94, 78, 95].map((h, i) => (
                     <div
                       key={i}
                       className="flex-1 rounded-sm transition-all duration-700"
@@ -482,7 +494,7 @@ const Process = () => {
                 <div
                   key={s.n}
                   className="flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-md transition-all duration-300 group"
-                  style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateX(16px)", transition: `opacity .6s ${i*100+200}ms, transform .6s ${i*100+200}ms` }}
+                  style={{ opacity: visible ? 1 : 0, transform: visible ? "none" : "translateX(16px)", transition: `opacity .6s ${i * 100 + 200}ms, transform .6s ${i * 100 + 200}ms` }}
                 >
                   <div className="w-10 h-10 rounded-xl bg-blue-900 group-hover:bg-blue-700 flex items-center justify-center shrink-0 transition-colors">
                     <span className="text-[11px] font-black text-white">{s.n}</span>

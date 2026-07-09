@@ -1,4 +1,5 @@
 import React from "react";
+import { useModal } from "../context/ModalContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import {
@@ -138,6 +139,7 @@ const processSteps = [
 ];
 
 const DigitalMarketing = () => {
+  const { open } = useModal();
   return (
     <div className="bg-white text-gray-900">
       <main className="max-w-[1500px] mx-auto px-8">
@@ -163,7 +165,10 @@ const DigitalMarketing = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="inline-flex items-center justify-center rounded-2xl bg-[#0B0F9C] px-7 py-4 text-base font-semibold text-white shadow-lg shadow-[#0B0F9C]/20 transition hover:bg-blue-800">
+                <button
+                  onClick={open}
+                  className="inline-flex items-center justify-center rounded-2xl bg-[#0B0F9C] px-7 py-4 text-base font-semibold text-white shadow-lg shadow-[#0B0F9C]/20 transition hover:bg-blue-800"
+                >
                   Book Discovery Call
                   <HiArrowRight className="ml-2 w-5 h-5" />
                 </button>
@@ -528,22 +533,6 @@ const DigitalMarketing = () => {
                 alt=""
                 className="w-full h-[500px] object-cover"
               />
-
-              <div className="absolute right-8 bottom-8 bg-white rounded-3xl p-5 shadow-2xl w-[240px]">
-                <p className="text-sm text-gray-500">Revenue Growth</p>
-
-                <h3 className="text-4xl font-bold mt-2">$480K</h3>
-
-                <p className="text-green-500 font-semibold mt-2">+250%</p>
-
-                <div className="mt-4 h-12 flex items-end gap-1">
-                  <div className="h-3 w-2 bg-blue-300 rounded"></div>
-                  <div className="h-5 w-2 bg-blue-400 rounded"></div>
-                  <div className="h-7 w-2 bg-blue-500 rounded"></div>
-                  <div className="h-8 w-2 bg-blue-600 rounded"></div>
-                  <div className="h-10 w-2 bg-blue-700 rounded"></div>
-                </div>
-              </div>
             </div>
 
             {/* TESTIMONIAL */}

@@ -23,12 +23,12 @@ export const aiAutomationCaseStudy = {
 
   image: automation,
 
-  floatingCard: {
-    title: "AI Assistant",
-    value: "5 New Leads",
-    delta: "+340%",
-    chartPoints: [20, 45, 35, 60, 55, 75, 95],
-  },
+  // floatingCard: {
+  //   title: "AI Assistant",
+  //   value: "5 New Leads",
+  //   delta: "+340%",
+  //   chartPoints: [20, 45, 35, 60, 55, 75, 95],
+  // },
 
   cta: {
     label: "View Case Study",

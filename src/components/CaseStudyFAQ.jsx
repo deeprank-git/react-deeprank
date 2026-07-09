@@ -74,7 +74,7 @@ const CaseStudyFAQ = ({ data }) => {
                   </div>
                 </div>
 
-                <div className="absolute bottom-8 right-4 w-64 rounded-[1.75rem] border border-white/70 bg-white/95 p-5 shadow-2xl shadow-slate-900/10 backdrop-blur-xl">
+                {/* <div className="absolute bottom-8 right-4 w-64 rounded-[1.75rem] border border-white/70 bg-white/95 p-5 shadow-2xl shadow-slate-900/10 backdrop-blur-xl">
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <p className="text-xs uppercase tracking-[0.28em] text-[#0B0F9C]">
@@ -100,12 +100,12 @@ const CaseStudyFAQ = ({ data }) => {
                       ))}
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
 
-          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_24px_64px_rgba(15,23,42,0.06)] sm:p-8">
+          <div className="rounded-4xl border border-slate-200 bg-white p-6 shadow-[0_24px_64px_rgba(15,23,42,0.06)] sm:p-8">
             <span className="inline-flex rounded-full bg-[#eef2ff] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#0B0F9C]">
               {faqBadge}
             </span>
@@ -134,19 +134,17 @@ const CaseStudyFAQ = ({ data }) => {
                         {faq.question}
                       </span>
                       <span
-                        className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg font-bold transition ${
-                          isOpen
-                            ? "border-[#0B0F9C] bg-[#0B0F9C] text-white"
-                            : "border-slate-200 bg-white text-slate-500"
-                        }`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-full border text-lg font-bold transition ${isOpen
+                          ? "border-[#0B0F9C] bg-[#0B0F9C] text-white"
+                          : "border-slate-200 bg-white text-slate-500"
+                          }`}
                       >
                         {isOpen ? "−" : "+"}
                       </span>
                     </button>
                     <div
-                      className={`overflow-hidden px-5 transition-all duration-300 ease-in-out ${
-                        isOpen ? "pb-5" : "pb-0"
-                      }`}
+                      className={`overflow-hidden px-5 transition-all duration-300 ease-in-out ${isOpen ? "pb-5" : "pb-0"
+                        }`}
                       style={{ maxHeight: isOpen ? "240px" : "0px" }}
                     >
                       <p className="text-sm leading-7 text-slate-600">

@@ -10,6 +10,7 @@ import {
 } from "react-icons/hi";
 import CTA from "../sections/CTA";
 import Process from "../sections/Process";
+import { useModal } from "../context/ModalContext";
 
 const services = [
   {
@@ -51,6 +52,7 @@ const services = [
 ];
 
 const NftDevelopment = () => {
+  const { open } = useModal();
   return (
     <div className="bg-white text-slate-900">
       <main className="max-w-[1500px] mx-auto px-6 sm:px-8">
@@ -72,7 +74,10 @@ const NftDevelopment = () => {
                 art to marketplace launch and community growth.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <button className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:bg-blue-800 transition">
+                <button
+                  onClick={open}
+                  className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:bg-blue-800 transition"
+                >
                   Book Discovery Call →
                 </button>
                 <button className="bg-white border border-slate-200 px-8 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
