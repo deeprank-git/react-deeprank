@@ -15,7 +15,9 @@ import CaseStudyFAQ from "../components/CaseStudyFAQ";
 import { seoCaseStudy } from "../data/caseStudies";
 import seo from "../assets/seo.png";
 import SEOAnalyticsDashboard from "../components/SEOAnalyticsDashboard";
+import { useModal } from "../context/ModalContext";
 const AIAutomation = () => {
+  const { open } = useModal();
   const [counter, setCounter] = useState(0);
   useEffect(() => {
     let current = 0;
@@ -31,39 +33,39 @@ const AIAutomation = () => {
   }, []);
 
   const solutions = [
-  {
-    id: 1,
-    title: "Keyword Research",
-    image:chatbotImg,
-    features: [
-      "we find high-value keywords your audience is searching for",
-    ],
-  },
-  {
-    id: 2,
-    title: "On-Page SEO",
-    image: voiceAgentImg,
-    features: [
-      "Optimize Your website's content, structure, and metadata for higher rankings",
-    ],
-  },
-  {
-    id: 3,
-    title: "Technical SEO",
-    image: workflowImg,
-    features: [
-      "Improve site speed, crawlability, indexing and overall site health",
-    ],
-  },
-  {
-    id: 4,
-    title: "Local SEO",
-    image: knowledgeImg,
-    features: [
-      "Rank in local search results and attract nearby customers",
-    ],
-  },
-];
+    {
+      id: 1,
+      title: "Keyword Research",
+      image: chatbotImg,
+      features: [
+        "we find high-value keywords your audience is searching for",
+      ],
+    },
+    {
+      id: 2,
+      title: "On-Page SEO",
+      image: voiceAgentImg,
+      features: [
+        "Optimize Your website's content, structure, and metadata for higher rankings",
+      ],
+    },
+    {
+      id: 3,
+      title: "Technical SEO",
+      image: workflowImg,
+      features: [
+        "Improve site speed, crawlability, indexing and overall site health",
+      ],
+    },
+    {
+      id: 4,
+      title: "Local SEO",
+      image: knowledgeImg,
+      features: [
+        "Rank in local search results and attract nearby customers",
+      ],
+    },
+  ];
 
   return (
     <>
@@ -78,7 +80,7 @@ const AIAutomation = () => {
               </p>
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight mt-4">
-               Rank Higher.
+                Rank Higher.
                 <br />
                 <span className="text-[#0B0F9C]">Get Found.</span> Grow Faster.
               </h1>
@@ -88,7 +90,10 @@ const AIAutomation = () => {
               </p>
 
               <div className="flex flex-wrap gap-4 mt-8">
-                <button className="bg-[#0B0F9C] text-white px-7 py-4 rounded-xl flex items-center gap-2">
+                <button
+                  onClick={open}
+                  className="bg-[#0B0F9C] text-white px-7 py-4 rounded-xl flex items-center gap-2"
+                >
                   Book Discovery Call
                   <HiArrowRight />
                 </button>
@@ -127,30 +132,11 @@ const AIAutomation = () => {
 
             {/* Right */}
             <div className="relative">
-              <div className="absolute inset-0 rounded-full bg-blue-100 blur-3xl opacity-50"></div>
-
               <img
                 src={seo}
                 alt=""
-                className="relative z-10 w-full max-w-lg mx-auto"
+                className="w-full max-w-2xl mx-auto"
               />
-
-              {/* Floating Card */}
-              <div className="absolute right-0 top-1/2 bg-white shadow-2xl rounded-2xl p-6 z-20">
-                <h3 className="text-5xl font-bold text-[#0B0F9C]">
-                  {counter}+
-                </h3>
-
-                <p className="text-gray-600 mt-2">Solutions Delivered</p>
-
-                <div className="mt-4 h-12 flex items-end gap-1">
-                  <div className="w-3 h-3 bg-blue-300 rounded"></div>
-                  <div className="w-3 h-5 bg-blue-400 rounded"></div>
-                  <div className="w-3 h-6 bg-blue-500 rounded"></div>
-                  <div className="w-3 h-8 bg-blue-600 rounded"></div>
-                  <div className="w-3 h-10 bg-blue-700 rounded"></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -160,7 +146,7 @@ const AIAutomation = () => {
             <div className="grid lg:grid-cols-4 gap-8 items-center ">
               <div>
                 <p className="text-[#0B0F9C] text-xs font-bold uppercase">
-                 The SEO Advantage
+                  The SEO Advantage
                 </p>
 
                 <h3 className="text-2xl font-bold mt-3">
@@ -171,7 +157,7 @@ const AIAutomation = () => {
               <div className="text-center border-l">
                 <h3 className="text-5xl font-bold">90%</h3>
                 <p className="text-gray-500 mt-2">
-                 Higher Organic Traffic
+                  Higher Organic Traffic
                 </p>
               </div>
 
@@ -185,7 +171,7 @@ const AIAutomation = () => {
               <div className="text-center border-l">
                 <h3 className="text-5xl font-bold">70%</h3>
                 <p className="text-gray-500 mt-2">
-                 Lower Acquisition Cost
+                  Lower Acquisition Cost
                 </p>
               </div>
             </div>
@@ -237,7 +223,7 @@ const AIAutomation = () => {
       <Industries />
       <Process />
       <CaseStudyFAQ data={seoCaseStudy} />
-    <CTA />
+      <CTA />
     </>
   );
 };

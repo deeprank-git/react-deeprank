@@ -1,4 +1,5 @@
 ﻿import React, { useState } from "react";
+import { useModal } from "../context/ModalContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CTA from "../sections/CTA";
@@ -249,6 +250,7 @@ const faqItems = [
 ];
 
 const SoftwareDevelopment = () => {
+  const { open } = useModal();
   const [activeFaq, setActiveFaq] = useState(0);
 
   return (
@@ -278,7 +280,10 @@ const SoftwareDevelopment = () => {
               </p>
 
               <div className="flex gap-5 mt-10">
-                <button className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-xl">
+                <button
+                  onClick={open}
+                  className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-xl"
+                >
                   Book Discovery Call
                 </button>
 

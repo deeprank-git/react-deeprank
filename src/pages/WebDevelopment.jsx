@@ -1,4 +1,5 @@
 ﻿import React from "react";
+import { useModal } from "../context/ModalContext";
 import {
   HiArrowRight,
   HiOutlineDeviceMobile,
@@ -71,6 +72,7 @@ const stats = [
 ];
 
 const WebDevelopment = () => {
+  const { open } = useModal();
   return (
     <div className="bg-white text-slate-900">
       <main className="max-w-[1500px] mx-auto px-6 sm:px-8">
@@ -100,7 +102,10 @@ const WebDevelopment = () => {
 
       <div className="mt-8 flex flex-wrap gap-4">
 
-        <button className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:bg-blue-800 transition">
+        <button
+          onClick={open}
+          className="bg-[#0B0F9C] text-white px-8 py-4 rounded-2xl font-semibold shadow-lg hover:bg-blue-800 transition"
+        >
           Book Discovery Call →
         </button>
 
@@ -135,43 +140,6 @@ const WebDevelopment = () => {
     alt="Web Development"
     className="w-full max-w-[900px] object-contain"
   />
-
-  {/* Floating Stats Card */}
-  <div className="absolute top-1/2 -right-6 -translate-y-1/2">
-    <div className="w-[280px] rounded-[32px] bg-white p-6 shadow-[0_20px_60px_rgba(15,23,42,0.12)]">
-
-      <div className="flex items-center gap-4 pb-5 border-b">
-        <div className="h-12 w-12 rounded-2xl bg-[#EEF2FF] flex items-center justify-center">
-          🚀
-        </div>
-        <div>
-          <h3 className="text-4xl font-bold text-[#0B0F9C]">200+</h3>
-          <p className="text-slate-600">Websites Delivered</p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-4 py-5 border-b">
-        <div className="h-12 w-12 rounded-2xl bg-[#EEF2FF] flex items-center justify-center">
-          👥
-        </div>
-        <div>
-          <h3 className="text-4xl font-bold text-[#0B0F9C]">98%</h3>
-          <p className="text-slate-600">Client Satisfaction</p>
-        </div>
-      </div>
-
-      <div className="flex items-center gap-4 pt-5">
-        <div className="h-12 w-12 rounded-2xl bg-[#EEF2FF] flex items-center justify-center">
-          ⚡
-        </div>
-        <div>
-          <h3 className="text-4xl font-bold text-[#0B0F9C]">1.5s</h3>
-          <p className="text-slate-600">Avg. Load Speed</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
 </div>
 </div>
 </section>
