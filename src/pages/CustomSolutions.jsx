@@ -150,12 +150,12 @@ const Hero = () => {
 
           {/* left */}
           <div className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block text-[10px] font-bold tracking-widest uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
               Custom Solutions
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.07] mb-5">
               Your Challenge.<br />
-              <span className="text-blue-600">Our Custom</span><br />
+              <span>Our Custom</span><br />
               Solution.
             </h1>
             <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">

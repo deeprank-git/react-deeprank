@@ -23,9 +23,8 @@ const CTA = () => {
           >
             Book a Discovery Call <HiArrowRight className="w-4 h-4" />
           </button>
-          <button className="inline-flex items-center justify-center gap-2 border-2 border-[#08104A] text-[#08104A] hover:bg-[#08104A] hover:text-white px-8 py-4 rounded-full font-semibold text-sm transition-all">
-            Explore Solutions <HiArrowRight className="w-4 h-4" />
-          </button>
+
+
         </div>
       </div>
     </section>

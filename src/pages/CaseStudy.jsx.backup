@@ -109,7 +109,7 @@ const HeroStats = () => {
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.08] mb-5">
               Results That<br />
-              <span className="text-blue-600">Speak For</span><br />
+              <span>Speak For</span><br />
               Themselves.
             </h1>
             <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
