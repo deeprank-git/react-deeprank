@@ -159,18 +159,18 @@ const industries = ["All", "Real Estate", "Healthcare", "E-Commerce", "Manufactu
 
 const realResults = [
   { value: "2,400+", label: "Leads Generated" },
-  { value: "30+",    label: "Industries Served" },
+  { value: "30+", label: "Industries Served" },
   { value: "46.30%", label: "Avg. Conversion Lift" },
   { value: "11,200+", label: "Hours Automated" },
-  { value: "140+",   label: "Campaigns Run" },
-  { value: "12.3X",  label: "Average ROI" },
+  { value: "140+", label: "Campaigns Run" },
+  { value: "12.3X", label: "Average ROI" },
 ];
 
 const testimonials = [
-  { name: "James Brown",      role: "MD, Estate Agency",      quote: "DeepRank team took our business seriously and our strategies drove remarkable results. Our organic leads increased 340% in 6 months.",          rating: 5 },
+  { name: "James Brown", role: "MD, Estate Agency", quote: "DeepRank team took our business seriously and our strategies drove remarkable results. Our organic leads increased 340% in 6 months.", rating: 5 },
   { name: "Dr. Sarah Mitchell", role: "Director, Health Clinic", quote: "300+ qualified appointments delivered through our campaign. Their strategies are innovative and we've seen a 300% spike in our client revenue.", rating: 5 },
-  { name: "Michael Roberts",  role: "CEO, AG UK",             quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.",             rating: 5 },
-  { name: "Lua Pang",         role: "Owner, Luxury Hotels",   quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.",        rating: 5 },
+  { name: "Michael Roberts", role: "CEO, AG UK", quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.", rating: 5 },
+  { name: "Lua Pang", role: "Owner, Luxury Hotels", quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.", rating: 5 },
 ];
 const featuredProjects = [
   {
@@ -324,7 +324,7 @@ const HeroStats = () => {
   const [ref, visible] = useReveal();
   const heroStats = [
     { value: "100+", label: "Solutions Delivered" },
-    { value: "20+",  label: "Time Saved (Years)" },
+    { value: "20+", label: "Time Saved (Years)" },
     { value: "500+", label: "Campaigns" },
     { value: "Global", label: "Client Reach" },
   ];
@@ -334,15 +334,15 @@ const HeroStats = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* left */}
           <div className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block text-[10px] font-bold tracking-widest uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
               Our Impact
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.08] mb-5">
               Results That<br />
-              <span className="text-blue-600">Speak For</span><br />
+              <span>Speak For</span><br />
               Themselves.
             </h1>
-            <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
+            <p className="text-gray-500 text-lg leading-relaxed mb-8 max-w-md">
               Real numbers. Real Impact. Real growth — delivered for businesses across every industry.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
@@ -408,104 +408,104 @@ const FeaturedCase = () => {
   return (
     <section ref={ref} className="bg-gray-50 py-14">
 
-  <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
 
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      navigation
-      pagination={{ clickable: true }}
-      autoplay={{
-        delay: 3500,
-        disableOnInteraction: false,
-      }}
-      loop
-      spaceBetween={20}
-      slidesPerView={1}
-    >
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+          }}
+          loop
+          spaceBetween={20}
+          slidesPerView={1}
+        >
 
-      {featuredProjects.map((project) => (
+          {featuredProjects.map((project) => (
 
-        <SwiperSlide key={project.title}>
+            <SwiperSlide key={project.title}>
 
-          <div className="bg-gray-900 rounded-[32px] overflow-hidden">
+              <div className="bg-gray-900 rounded-[32px] overflow-hidden">
 
-            <div className="grid lg:grid-cols-[1fr_380px]">
+                <div className="grid lg:grid-cols-[1fr_380px]">
 
-              {/* LEFT */}
+                  {/* LEFT */}
 
-              <div className="p-10 lg:p-14">
+                  <div className="p-10 lg:p-14">
 
-                <span className="inline-flex rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
-                  Featured Case Study
-                </span>
+                    <span className="inline-flex rounded-full bg-blue-500/10 border border-blue-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.25em] text-blue-400">
+                      Featured Case Study
+                    </span>
 
-                <h2 className="mt-6 text-5xl font-black text-white">
-                  {project.title}
-                </h2>
+                    <h2 className="mt-6 text-5xl font-black text-white">
+                      {project.title}
+                    </h2>
 
-                <p className="mt-6 max-w-xl text-slate-300 leading-8">
-                  {project.description}
-                </p>
+                    <p className="mt-6 max-w-xl text-slate-300 leading-8">
+                      {project.description}
+                    </p>
 
-                <div className="grid grid-cols-3 gap-5 mt-10">
+                    <div className="grid grid-cols-3 gap-5 mt-10">
 
-                  {project.stats.map((stat) => (
+                      {project.stats.map((stat) => (
 
-                    <div
-                      key={stat.label}
-                      className="rounded-2xl border border-white/10 p-5"
-                    >
-                      <h3 className="text-4xl font-black text-blue-400">
-                        {stat.value}
-                      </h3>
+                        <div
+                          key={stat.label}
+                          className="rounded-2xl border border-white/10 p-5"
+                        >
+                          <h3 className="text-4xl font-black text-blue-400">
+                            {stat.value}
+                          </h3>
 
-                      <p className="mt-2 text-xs text-slate-400">
-                        {stat.label}
-                      </p>
+                          <p className="mt-2 text-xs text-slate-400">
+                            {stat.label}
+                          </p>
+
+                        </div>
+
+                      ))}
 
                     </div>
 
-                  ))}
+                    <Link
+                      to={project.link}
+                      className="inline-flex items-center gap-3 mt-10 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white hover:bg-blue-500"
+                    >
+                      View Full Case Study
+                      <HiArrowRight className="w-5 h-5" />
+                    </Link>
+
+                  </div>
+
+                  {/* RIGHT */}
+
+                  <div className="relative hidden lg:block">
+
+                    <img
+                      src={project.image}
+                      className="h-full w-full object-cover"
+                      alt={project.title}
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gray-900" />
+
+                  </div>
 
                 </div>
 
-                <Link
-                  to={project.link}
-                  className="inline-flex items-center gap-3 mt-10 rounded-xl bg-blue-600 px-7 py-4 font-semibold text-white hover:bg-blue-500"
-                >
-                  View Full Case Study
-                  <HiArrowRight className="w-5 h-5" />
-                </Link>
-
               </div>
 
-              {/* RIGHT */}
+            </SwiperSlide>
 
-              <div className="relative hidden lg:block">
+          ))}
 
-                <img
-                  src={project.image}
-                  className="h-full w-full object-cover"
-                  alt={project.title}
-                />
+        </Swiper>
 
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-gray-900" />
+      </div>
 
-              </div>
-
-            </div>
-
-          </div>
-
-        </SwiperSlide>
-
-      ))}
-
-    </Swiper>
-
-  </div>
-
-</section>
+    </section>
   );
 };
 
@@ -536,11 +536,10 @@ const CaseGrid = () => {
             <button
               key={ind}
               onClick={() => setFilter(ind)}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                filter === ind
-                  ? "bg-blue-900 text-white border-blue-900"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-700"
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition-all ${filter === ind
+                ? "bg-blue-900 text-white border-blue-900"
+                : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-700"
+                }`}
             >
               {ind}
             </button>
@@ -572,12 +571,12 @@ const CaseGrid = () => {
                   View Case Study <HiArrowRight className="w-3.5 h-3.5" />
                 </button> */}
                 <Link
-  to={c.link}
-  className="inline-flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all"
->
-  View Case Study
-  <HiArrowRight className="w-3.5 h-3.5" />
-</Link>
+                  to={c.link}
+                  className="inline-flex items-center gap-1 text-blue-700 font-semibold text-xs hover:gap-2.5 transition-all"
+                >
+                  View Case Study
+                  <HiArrowRight className="w-3.5 h-3.5" />
+                </Link>
               </div>
             </div>
           ))}
@@ -607,9 +606,9 @@ const ImpactSection = () => {
             </p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Traffic",               pct: 85, color: "bg-blue-500" },
-                { label: "Organic",               pct: 72, color: "bg-purple-500" },
-                { label: "Advertising",           pct: 60, color: "bg-cyan-500" },
+                { label: "Traffic", pct: 85, color: "bg-blue-500" },
+                { label: "Organic", pct: 72, color: "bg-purple-500" },
+                { label: "Advertising", pct: 60, color: "bg-cyan-500" },
                 { label: "Conversions & Revenue", pct: 90, color: "bg-green-500" },
               ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-3">
@@ -642,8 +641,8 @@ const ImpactSection = () => {
                   <XAxis dataKey="m" tick={{ fontSize: 10, fill: "#6B7280" }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 10, fill: "#6B7280" }} axisLine={false} tickLine={false} />
                   <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, backgroundColor: "#1F2937", border: "none", color: "#F9FAFB" }} />
-                  <Line type="monotone" dataKey="organic"     stroke="#3B82F6" strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="ads"         stroke="#A78BFA" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="organic" stroke="#3B82F6" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="ads" stroke="#A78BFA" strokeWidth={2} dot={false} />
                   <Line type="monotone" dataKey="conversions" stroke="#34D399" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
@@ -661,42 +660,42 @@ const IndustrySection = () => {
   const [active, setActive] = useState("All");
 
   const industryCards = [
-  {
-    label: "All",
-    img: tsamuelestate,
-    count: "9 Projects",
-  },
-  {
-    label: "Real Estate",
-    img: tsamuelestate,
-    count: "2 Projects",
-  },
-  {
-    label: "Healthcare",
-    img: healing,
-    count: "1 Project",
-  },
-  {
-    label: "Education",
-    img: exademy,
-    count: "2 Projects",
-  },
-  {
-    label: "Manufacturing",
-    img: aisutilities,
-    count: "1 Project",
-  },
-  {
-    label: "Hospitality",
-    img: gebeluxe,
-    count: "1 Project",
-  },
-  {
-    label: "E-Commerce",
-    img: handicraft,
-    count: "2 Projects",
-  },
-];
+    {
+      label: "All",
+      img: tsamuelestate,
+      count: "9 Projects",
+    },
+    {
+      label: "Real Estate",
+      img: tsamuelestate,
+      count: "2 Projects",
+    },
+    {
+      label: "Healthcare",
+      img: healing,
+      count: "1 Project",
+    },
+    {
+      label: "Education",
+      img: exademy,
+      count: "2 Projects",
+    },
+    {
+      label: "Manufacturing",
+      img: aisutilities,
+      count: "1 Project",
+    },
+    {
+      label: "Hospitality",
+      img: gebeluxe,
+      count: "1 Project",
+    },
+    {
+      label: "E-Commerce",
+      img: handicraft,
+      count: "2 Projects",
+    },
+  ];
   return (
     <section ref={ref} className="py-24 bg-white">
 
@@ -705,11 +704,10 @@ const IndustrySection = () => {
         {/* Heading */}
 
         <div
-          className={`text-center mb-12 transition-all duration-700 ${
-            visible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-12 transition-all duration-700 ${visible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
+            }`}
         >
           <span className="inline-flex px-5 py-2 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.25em] uppercase">
             By Industry
@@ -735,11 +733,10 @@ const IndustrySection = () => {
               onClick={() => setActive(item.label)}
               className={`px-6 py-3 rounded-full border transition-all duration-300 text-sm font-semibold
 
-              ${
-                active === item.label
+              ${active === item.label
                   ? "bg-[#0B0F9C] text-white border-[#0B0F9C]"
                   : "bg-white border-gray-200 hover:border-[#0B0F9C] hover:text-[#0B0F9C]"
-              }`}
+                }`}
             >
               {item.label}
             </button>
@@ -751,52 +748,51 @@ const IndustrySection = () => {
         {/* Cards */}
 
         {/* Industry Cards */}
-<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 
-  {industryCards
-    .filter((item) => {
-      if (item.label === "All") return false;
-      return active === "All" || active === item.label;
-    })
-    .map((item, index) => (
+          {industryCards
+            .filter((item) => {
+              if (item.label === "All") return false;
+              return active === "All" || active === item.label;
+            })
+            .map((item, index) => (
 
-      <div
-        key={item.label}
-        onClick={() => setActive(item.label)}
-        className={`group cursor-pointer rounded-3xl overflow-hidden border bg-white shadow-sm transition-all duration-300
-        ${
-          active === item.label
-            ? "border-[#0B0F9C] shadow-xl"
-            : "border-slate-200 hover:-translate-y-1 hover:shadow-lg"
-        }`}
-      >
-        <div className="relative h-40">
+              <div
+                key={item.label}
+                onClick={() => setActive(item.label)}
+                className={`group cursor-pointer rounded-3xl overflow-hidden border bg-white shadow-sm transition-all duration-300
+        ${active === item.label
+                    ? "border-[#0B0F9C] shadow-xl"
+                    : "border-slate-200 hover:-translate-y-1 hover:shadow-lg"
+                  }`}
+              >
+                <div className="relative h-40">
 
-          <img
-            src={item.img}
-            alt={item.label}
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-          />
+                  <img
+                    src={item.img}
+                    alt={item.label}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                  />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-          <div className="absolute bottom-4 left-4">
+                  <div className="absolute bottom-4 left-4">
 
-            <h3 className="text-white text-base font-bold">
-              {item.label}
-            </h3>
+                    <h3 className="text-white text-base font-bold">
+                      {item.label}
+                    </h3>
 
-            <p className="text-white/80 text-xs mt-1">
-              {item.count}
-            </p>
+                    <p className="text-white/80 text-xs mt-1">
+                      {item.count}
+                    </p>
 
-          </div>
+                  </div>
 
-        </div>
+                </div>
 
-      </div>
+              </div>
 
-    ))}
+            ))}
 
 
         </div>

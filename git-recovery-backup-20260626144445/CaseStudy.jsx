@@ -139,18 +139,18 @@ const industries = ["All", "Real Estate", "Healthcare", "E-Commerce", "Manufactu
 
 const realResults = [
   { value: "2,400+", label: "Leads Generated" },
-  { value: "30+",    label: "Industries Served" },
+  { value: "30+", label: "Industries Served" },
   { value: "46.30%", label: "Avg. Conversion Lift" },
   { value: "11,200+", label: "Hours Automated" },
-  { value: "140+",   label: "Campaigns Run" },
-  { value: "12.3X",  label: "Average ROI" },
+  { value: "140+", label: "Campaigns Run" },
+  { value: "12.3X", label: "Average ROI" },
 ];
 
 const testimonials = [
-  { name: "James Brown",      role: "MD, Estate Agency",      quote: "DeepRank team took our business seriously and our strategies drove remarkable results. Our organic leads increased 340% in 6 months.",          rating: 5 },
+  { name: "James Brown", role: "MD, Estate Agency", quote: "DeepRank team took our business seriously and our strategies drove remarkable results. Our organic leads increased 340% in 6 months.", rating: 5 },
   { name: "Dr. Sarah Mitchell", role: "Director, Health Clinic", quote: "300+ qualified appointments delivered through our campaign. Their strategies are innovative and we've seen a 300% spike in our client revenue.", rating: 5 },
-  { name: "Michael Roberts",  role: "CEO, AG UK",             quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.",             rating: 5 },
-  { name: "Lua Pang",         role: "Owner, Luxury Hotels",   quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.",        rating: 5 },
+  { name: "Michael Roberts", role: "CEO, AG UK", quote: "Their team's expertise in automation and AI solutions created unprecedented growth. We're incredibly pleased with the productivity.", rating: 5 },
+  { name: "Lua Pang", role: "Owner, Luxury Hotels", quote: "DeepRank is so go-to partner for digital growth. They're totally recommended for anyone serious about scaling their hospitality brand.", rating: 5 },
 ];
 
 /* ── animated counter hook ── */
@@ -187,7 +187,7 @@ const HeroStats = () => {
   const [ref, visible] = useReveal();
   const heroStats = [
     { value: "100+", label: "Solutions Delivered" },
-    { value: "20+",  label: "Time Saved (Years)" },
+    { value: "20+", label: "Time Saved (Years)" },
     { value: "500+", label: "Campaigns" },
     { value: "Global", label: "Client Reach" },
   ];
@@ -197,12 +197,12 @@ const HeroStats = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* left */}
           <div className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="inline-block text-[10px] font-bold tracking-widest text-blue-600 uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
+            <span className="inline-block text-[10px] font-bold tracking-widest uppercase bg-blue-50 px-3 py-1.5 rounded-full mb-4">
               Our Impact
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.08] mb-5">
               Results That<br />
-              <span className="text-blue-600">Speak For</span><br />
+              <span>Speak For</span><br />
               Themselves.
             </h1>
             <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
@@ -288,7 +288,7 @@ const FeaturedCase = () => {
                 {[
                   { v: "340%", l: "Organic Traffic Growth" },
                   { v: "120%", l: "Lead Form Submissions" },
-                  { v: "85%",  l: "Cost Per Lead Reduction" },
+                  { v: "85%", l: "Cost Per Lead Reduction" },
                 ].map((s) => (
                   <div key={s.l} className="border border-white/10 rounded-xl p-4">
                     <p className="text-3xl font-black text-blue-400 mb-1">{s.v}</p>
@@ -338,11 +338,10 @@ const CaseGrid = () => {
             <button
               key={ind}
               onClick={() => setFilter(ind)}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition-all ${
-                filter === ind
-                  ? "bg-blue-900 text-white border-blue-900"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-700"
-              }`}
+              className={`px-4 py-1.5 rounded-full text-xs font-semibold border transition-all ${filter === ind
+                ? "bg-blue-900 text-white border-blue-900"
+                : "bg-white text-gray-600 border-gray-200 hover:border-blue-300 hover:text-blue-700"
+                }`}
             >
               {ind}
             </button>
@@ -402,9 +401,9 @@ const ImpactSection = () => {
             </p>
             <div className="flex flex-col gap-3">
               {[
-                { label: "Traffic",               pct: 85, color: "bg-blue-500" },
-                { label: "Organic",               pct: 72, color: "bg-purple-500" },
-                { label: "Advertising",           pct: 60, color: "bg-cyan-500" },
+                { label: "Traffic", pct: 85, color: "bg-blue-500" },
+                { label: "Organic", pct: 72, color: "bg-purple-500" },
+                { label: "Advertising", pct: 60, color: "bg-cyan-500" },
                 { label: "Conversions & Revenue", pct: 90, color: "bg-green-500" },
               ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-3">
@@ -437,8 +436,8 @@ const ImpactSection = () => {
                   <XAxis dataKey="m" tick={{ fontSize: 10, fill: "#6B7280" }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 10, fill: "#6B7280" }} axisLine={false} tickLine={false} />
                   <Tooltip contentStyle={{ fontSize: 11, borderRadius: 8, backgroundColor: "#1F2937", border: "none", color: "#F9FAFB" }} />
-                  <Line type="monotone" dataKey="organic"     stroke="#3B82F6" strokeWidth={2} dot={false} />
-                  <Line type="monotone" dataKey="ads"         stroke="#A78BFA" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="organic" stroke="#3B82F6" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="ads" stroke="#A78BFA" strokeWidth={2} dot={false} />
                   <Line type="monotone" dataKey="conversions" stroke="#34D399" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
@@ -456,42 +455,42 @@ const IndustrySection = () => {
   const [active, setActive] = useState("All");
 
   const industryCards = [
-  {
-    label: "All",
-    img: tsamuelestate,
-    count: "9 Projects",
-  },
-  {
-    label: "Real Estate",
-    img: tsamuelestate,
-    count: "2 Projects",
-  },
-  {
-    label: "Healthcare",
-    img: healing,
-    count: "1 Project",
-  },
-  {
-    label: "Education",
-    img: exademy,
-    count: "2 Projects",
-  },
-  {
-    label: "Manufacturing",
-    img: aisutilities,
-    count: "1 Project",
-  },
-  {
-    label: "Hospitality",
-    img: gebeluxe,
-    count: "1 Project",
-  },
-  {
-    label: "E-Commerce",
-    img: handicraft,
-    count: "2 Projects",
-  },
-];
+    {
+      label: "All",
+      img: tsamuelestate,
+      count: "9 Projects",
+    },
+    {
+      label: "Real Estate",
+      img: tsamuelestate,
+      count: "2 Projects",
+    },
+    {
+      label: "Healthcare",
+      img: healing,
+      count: "1 Project",
+    },
+    {
+      label: "Education",
+      img: exademy,
+      count: "2 Projects",
+    },
+    {
+      label: "Manufacturing",
+      img: aisutilities,
+      count: "1 Project",
+    },
+    {
+      label: "Hospitality",
+      img: gebeluxe,
+      count: "1 Project",
+    },
+    {
+      label: "E-Commerce",
+      img: handicraft,
+      count: "2 Projects",
+    },
+  ];
   return (
     <section ref={ref} className="py-24 bg-white">
 
@@ -500,11 +499,10 @@ const IndustrySection = () => {
         {/* Heading */}
 
         <div
-          className={`text-center mb-12 transition-all duration-700 ${
-            visible
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-12 transition-all duration-700 ${visible
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-8"
+            }`}
         >
           <span className="inline-flex px-5 py-2 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold tracking-[0.25em] uppercase">
             By Industry
@@ -530,11 +528,10 @@ const IndustrySection = () => {
               onClick={() => setActive(item.label)}
               className={`px-6 py-3 rounded-full border transition-all duration-300 text-sm font-semibold
 
-              ${
-                active === item.label
+              ${active === item.label
                   ? "bg-[#0B0F9C] text-white border-[#0B0F9C]"
                   : "bg-white border-gray-200 hover:border-[#0B0F9C] hover:text-[#0B0F9C]"
-              }`}
+                }`}
             >
               {item.label}
             </button>
@@ -546,52 +543,51 @@ const IndustrySection = () => {
         {/* Cards */}
 
         {/* Industry Cards */}
-<div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
 
-  {industryCards
-    .filter((item) => {
-      if (item.label === "All") return false;
-      return active === "All" || active === item.label;
-    })
-    .map((item, index) => (
+          {industryCards
+            .filter((item) => {
+              if (item.label === "All") return false;
+              return active === "All" || active === item.label;
+            })
+            .map((item, index) => (
 
-      <div
-        key={item.label}
-        onClick={() => setActive(item.label)}
-        className={`group cursor-pointer rounded-3xl overflow-hidden border bg-white shadow-sm transition-all duration-300
-        ${
-          active === item.label
-            ? "border-[#0B0F9C] shadow-xl"
-            : "border-slate-200 hover:-translate-y-1 hover:shadow-lg"
-        }`}
-      >
-        <div className="relative h-40">
+              <div
+                key={item.label}
+                onClick={() => setActive(item.label)}
+                className={`group cursor-pointer rounded-3xl overflow-hidden border bg-white shadow-sm transition-all duration-300
+        ${active === item.label
+                    ? "border-[#0B0F9C] shadow-xl"
+                    : "border-slate-200 hover:-translate-y-1 hover:shadow-lg"
+                  }`}
+              >
+                <div className="relative h-40">
 
-          <img
-            src={item.img}
-            alt={item.label}
-            className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
-          />
+                  <img
+                    src={item.img}
+                    alt={item.label}
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
+                  />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-          <div className="absolute bottom-4 left-4">
+                  <div className="absolute bottom-4 left-4">
 
-            <h3 className="text-white text-base font-bold">
-              {item.label}
-            </h3>
+                    <h3 className="text-white text-base font-bold">
+                      {item.label}
+                    </h3>
 
-            <p className="text-white/80 text-xs mt-1">
-              {item.count}
-            </p>
+                    <p className="text-white/80 text-xs mt-1">
+                      {item.count}
+                    </p>
 
-          </div>
+                  </div>
 
-        </div>
+                </div>
 
-      </div>
+              </div>
 
-    ))}
+            ))}
 
 
         </div>
